@@ -4,7 +4,7 @@ import Header from "@/components/general/header"
 const page = () => {
   return (
     <div>
-      <Header>Project</Header>
+      <Header>Projects</Header>
       <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-4'>
         <ProjectCard />
       </div>

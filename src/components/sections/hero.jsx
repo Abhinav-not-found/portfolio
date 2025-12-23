@@ -5,7 +5,7 @@ import { Button } from "../ui/button"
 
 const Hero = () => {
   return (
-    <section className='w-full h-full space-y-10'>
+    <section className='w-full h-full space-y-12'>
       <div className='text-4xl font-inter font-semibold space-y-2 mt-4 tracking-tighter relative'>
         <h1 className=' '>Hi, I'm Abhinav Kumar</h1>
         <h1 className='text-muted-foreground text-5xl '>
@@ -34,7 +34,7 @@ const Hero = () => {
 
 const SocialLinks = () => {
   return (
-    <div className='flex gap-3 text-muted-foreground'>
+    <div className='flex gap-4 text-muted-foreground'>
       {socials.map(({ icon: Icon, href, label }) => (
         <a
           key={label}
