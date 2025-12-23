@@ -5,17 +5,16 @@ import { usePathname } from "next/navigation"
 
 const NavLinks = () => {
   return (
-    <nav className='text-sm flex gap-4'>
-      <Links>projects</Links>
-      <Links>components</Links>
-      <Links>blogs</Links>
+    <nav className="text-sm flex gap-4">
+      <Links href="/projects" label="projects" />
+      <Links href="/components" label="components" />
+      <Links href="/blogs" label="blogs" />
     </nav>
   )
 }
 
-const Links = ({ children }) => {
+const Links = ({ href, label }) => {
   const path = usePathname()
-  const href = `/${children}`
   const isActive = path === href
 
   return (
@@ -27,7 +26,7 @@ const Links = ({ children }) => {
           : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:underline"
       }`}
     >
-      {children}
+      {label}
     </Link>
   )
 }
