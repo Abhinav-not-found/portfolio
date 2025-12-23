@@ -1,11 +1,12 @@
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Container from "@/components/general/container";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700","800",'900'],
+  weight: ["400", "500", "600", "700", "800", '900'],
 });
 
 const poppins = Poppins({
@@ -21,13 +22,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased`}
       >
-        <Container>
-          {children}
-        </Container>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <Container>
+            {children}
+          </Container>
+        </ThemeProvider>
       </body>
     </html>
   );
