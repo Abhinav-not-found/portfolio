@@ -1,9 +1,18 @@
+import { ProjectCard } from "@/app/projects/page"
 import React from "react"
+import { BigHeading, Heading, SmallHeading } from "../general/heading"
 
 const Project = () => {
   return (
-    <section className='mt-10'>
-      <h1 className="font-inter text-lg">Projects</h1>
+    <section className='mt-18'>
+      <Heading>
+        <SmallHeading>Latest</SmallHeading>
+        <BigHeading>Projects</BigHeading>
+      </Heading>
+      <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-6'>
+        <ProjectCard />
+        <ProjectCard />
+      </div>
     </section>
   )
 }
