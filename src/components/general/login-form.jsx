@@ -4,13 +4,16 @@ import { Input } from "../ui/input"
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
 import { useRouter } from "next/navigation"
+import { Spinner } from "../ui/spinner"
 
 const LoginForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const res = await fetch("/api/login", {
         method: "POST",
@@ -26,6 +29,8 @@ const LoginForm = () => {
       router.push("/dashboard")
     } catch (error) {
       console.log(error)
+    } finally {
+      setLoading(false)
     }
   }
   return (
@@ -54,7 +59,13 @@ const LoginForm = () => {
           </Field>
           <Field>
             <Button type='submit' className={"py-5 font-semibold "}>
-              Login
+              {loading ? (
+                <>
+                  <Spinner />
+                </>
+              ) : (
+                "Login"
+              )}
             </Button>
           </Field>
         </FieldGroup>

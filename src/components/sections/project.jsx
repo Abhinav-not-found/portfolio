@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/app/projects/page"
+import { ProjectCard } from "@/app/(main)/projects/page"
 import React from "react"
 import { BigHeading, Heading, SmallHeading } from "../general/heading"
 
