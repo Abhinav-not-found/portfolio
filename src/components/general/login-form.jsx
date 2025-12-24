@@ -7,9 +7,16 @@ import { Button } from "../ui/button"
 const LoginForm = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  function handleSubmit() {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    try {
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
-    <form className='mt-10' onSubmit={handleSubmit}>
+    <form className='mt-10' onSubmit={(e) => handleSubmit(e)}>
       <FieldSet>
         <FieldGroup>
           <Field>
