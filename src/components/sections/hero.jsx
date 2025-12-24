@@ -5,18 +5,18 @@ import { Button } from "../ui/button"
 
 const Hero = () => {
   return (
-    <section className='w-full h-full space-y-14'>
+    <section className='w-full h-full space-y-12'>
       <div className='text-4xl font-inter font-semibold space-y-2 mt-6 tracking-tighter relative'>
         <h1 className=' '>Hi, I'm Abhinav Kumar</h1>
-        <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-400 to-neutral-400/60 dark:to-neutral-400/60 bg-clip-text text-transparent'>
+        <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-400 to-neutral-400/70 dark:to-neutral-400/70 bg-clip-text text-transparent'>
           A fullstack web developer.
         </h1>
-        <h1 className='text-neutral-300 text-3xl dark:text-neutral-700'>
+        <h1 className='text-neutral-200 text-3xl dark:text-neutral-700'>
           // Based in India
         </h1>
       </div>
       <div className=''>
-        <p className='text-muted-foreground text-2xl font-poppins'>
+        <p className='text-muted-foreground text-xl font-poppins'>
           I build interactive web apps using MERN stack. With focus on attention
           to detail . Enthusiastic about Next.js, driven by solving problems
           that improves user experience .{" "}
@@ -45,7 +45,7 @@ const SocialLinks = () => {
           target='_blank'
           rel='noopener noreferrer'
           aria-label={label}
-          className='hover:text-black dark:hover:text-white transition'
+          className='hover:text-black dark:hover:text-white hover:scale-110 transition-all'
         >
           <Icon size={24} />
         </a>

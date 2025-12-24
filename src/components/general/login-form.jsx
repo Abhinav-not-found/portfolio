@@ -1,14 +1,44 @@
-import React from 'react'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
+"use client"
+import React, { useState } from "react"
+import { Input } from "../ui/input"
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
+import { Button } from "../ui/button"
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  function handleSubmit() {}
   return (
-    <form className='mt-10'>
-      <Label>Email</Label>
-      <Input type={'text'}/>
-      <Label>password</Label>
-      <Input type={'text'}/>
+    <form className='mt-10' onSubmit={handleSubmit}>
+      <FieldSet>
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor='email'>Email</FieldLabel>
+            <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              id='email'
+              type={"text"}
+              placeholder='JohnDoe@gmail.com'
+            />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor='password'>Password</FieldLabel>
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              id='password'
+              type={"password"}
+              placeholder='••••••'
+            />
+          </Field>
+          <Field>
+            <Button type='submit' className={"py-5 font-semibold "}>
+              Login
+            </Button>
+          </Field>
+        </FieldGroup>
+      </FieldSet>
     </form>
   )
 }
