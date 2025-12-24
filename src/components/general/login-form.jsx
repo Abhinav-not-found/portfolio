@@ -3,14 +3,27 @@ import React, { useState } from "react"
 import { Input } from "../ui/input"
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
+import { useRouter } from "next/navigation"
 
 const LoginForm = () => {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+
+      if (!res.ok) {
+        // handle invalid credentials here
+        return
+      }
+
+      router.push("/dashboard")
     } catch (error) {
       console.log(error)
     }

@@ -1,11 +1,6 @@
-import React from 'react'
+import PrivateRoute from "@/components/routes/private-route"
+import React from "react"
 
-const Dashboard = () => {
-  return (
-    <main>
-      
-    </main>
-  )
+export default async function Dashboard() {
+  return <PrivateRoute></PrivateRoute>
 }
-
-export default Dashboard
