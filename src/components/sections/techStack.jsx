@@ -8,7 +8,7 @@ import { techStack } from "@/lib/misc"
 
 const TechStack = () => {
   return (
-    <section className='mt-18'>
+    <section className='mt-20'>
       <Heading>
         <SmallHeading>Tech</SmallHeading>
         <BigHeading>Stack</BigHeading>

@@ -5,11 +5,14 @@ import { Button } from "../ui/button"
 
 const Hero = () => {
   return (
-    <section className='w-full h-full space-y-12'>
-      <div className='text-4xl font-inter font-semibold space-y-2 mt-4 tracking-tighter relative'>
+    <section className='w-full h-full space-y-14'>
+      <div className='text-4xl font-inter font-semibold space-y-2 mt-6 tracking-tighter relative'>
         <h1 className=' '>Hi, I'm Abhinav Kumar</h1>
-        <h1 className='text-muted-foreground text-5xl '>
+        <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-400 to-neutral-400/60 dark:to-neutral-400/60 bg-clip-text text-transparent'>
           A fullstack web developer.
+        </h1>
+        <h1 className='text-neutral-300 text-3xl dark:text-neutral-700'>
+          // Based in India
         </h1>
       </div>
       <div className=''>

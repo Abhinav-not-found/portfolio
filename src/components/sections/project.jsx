@@ -4,7 +4,7 @@ import { BigHeading, Heading, SmallHeading } from "../general/heading"
 
 const Project = () => {
   return (
-    <section className='mt-18'>
+    <section className='mt-20'>
       <Heading>
         <SmallHeading>Latest</SmallHeading>
         <BigHeading>Projects</BigHeading>
