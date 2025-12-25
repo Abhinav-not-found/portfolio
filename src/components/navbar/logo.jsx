@@ -1,14 +1,17 @@
+import { cookies } from "next/headers"
 import Link from "next/link"
 import React from "react"
 
-// change this to /dashboard when cookies are detected
+export default async function Logo() {
+  const cookieStore = await cookies()
+  const token = cookieStore.get("token")
 
-const Logo = () => {
   return (
-    <Link href={"/"} className='font-bold font-inter text-xl select-none tracking-tighter'>
+    <Link
+      href={token ? "/admin/dashboard" : "/"}
+      className='font-bold font-inter text-xl select-none tracking-tighter'
+    >
       AK
     </Link>
   )
 }
-
-export default Logo
