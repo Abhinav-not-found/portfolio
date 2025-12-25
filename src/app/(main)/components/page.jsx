@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from '@/components/general/header'
+import PublicRoute from '@/components/routes/public-route'
 
 const page = () => {
   return (
-    <div>
+    <PublicRoute>
       <Header>Components</Header>
-    </div>
+    </PublicRoute>
   )
 }
 

@@ -6,7 +6,7 @@ export default async function PublicRoute({ children }) {
   const cookieStore = await cookies()
   const token = cookieStore.get("token")
   if (token) {
-    redirect("/dashboard")
+    redirect("/admin/dashboard")
   }
   return <main>{children}</main>
 }

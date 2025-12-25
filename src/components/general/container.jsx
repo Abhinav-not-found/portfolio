@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from "./navbar"
+import Navbar from "../navbar/navbar"
 import Footer from "./footer"
 
 const Container = ({ children }) => {
@@ -7,7 +7,7 @@ const Container = ({ children }) => {
     <div className='max-w-2xl h-full mx-auto'>
       <Navbar />
       {children}
-      <Footer/>
+      <Footer />
     </div>
   )
 }

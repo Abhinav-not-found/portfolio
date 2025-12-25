@@ -13,7 +13,7 @@ const NavLinks = () => {
   )
 }
 
-const Links = ({ href, label }) => {
+export const Links = ({ href, label }) => {
   const path = usePathname()
   const isActive = path === href
 

@@ -6,6 +6,8 @@ import { Button } from "../ui/button"
 import { useRouter } from "next/navigation"
 import { Spinner } from "../ui/spinner"
 
+// put handle submit in another file and import from there
+
 const LoginForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
@@ -26,7 +28,7 @@ const LoginForm = () => {
         return
       }
 
-      router.push("/dashboard")
+      router.push("/admin/dashboard")
     } catch (error) {
       console.log(error)
     } finally {
