@@ -10,10 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { connectDB } from "@/lib/db"
+import navlinkModel from "@/model/navlink.model"
 
 // make this page workable with all functionality: delete, edit(input box in table-cell), add(dialog box)
 
-const NavLinks = () => {
+const NavLinks = async () => {
+  await connectDB()
+  const links = await navlinkModel.find({}).lean()
   return (
     <main>
       <div className='flex justify-between items-center mt-2'>
@@ -30,15 +34,19 @@ const NavLinks = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell>1</TableCell>
-            <TableCell>Projects</TableCell>
-            <TableCell>/projects</TableCell>
-            <TableCell>
-              <EditBtn />
-              <DeleteBtn />
-            </TableCell>
-          </TableRow>
+          {links.map((i, index) => {
+            return (
+              <TableRow key={i.name}>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{i.name}</TableCell>
+                <TableCell>{i.link}</TableCell>
+                <TableCell>
+                  <EditBtn />
+                  <DeleteBtn />
+                </TableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </main>

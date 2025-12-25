@@ -15,8 +15,13 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Checkbox } from "../ui/checkbox"
 import { Label } from "../ui/label"
 import { Spinner } from "../ui/spinner"
+import { useRouter } from "next/navigation"
+
+// seprate handlesubmit into another file and then import it from there
+// add sonner when having error: link already exist
 
 const AddBtn = () => {
+  const router = useRouter()
   const [sameAsName, setSameAsName] = useState(true)
   const [name, setName] = useState("")
   const [link, setLink] = useState("")
@@ -26,7 +31,20 @@ const AddBtn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
+
+    const finalLink = sameAsName ? name : link
     try {
+      const res = await fetch("/api/navlink", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, link: finalLink }),
+        credentials: "same-origin",
+      })
+      const data = await res.json()
+      if (res.ok) {
+        setOpen(false)
+        router.refresh()
+      }
     } catch (error) {
       console.log(error)
     } finally {
