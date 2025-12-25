@@ -1,9 +1,6 @@
 # continue
+- code cleanup
 - main-side: resume page, contact page
-- admin-side: navlinks page functionality
-
-
-
 
 
 # later

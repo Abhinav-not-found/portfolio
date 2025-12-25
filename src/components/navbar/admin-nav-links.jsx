@@ -7,7 +7,6 @@ const AdminNavLinks = () => {
       <Links href='/admin/projects' label='projects' />
       <Links href='/admin/components' label='components' />
       <Links href='/admin/blogs' label='blogs' />
-      <Links href='/admin/navLinks' label='Navlinks' />
     </nav>
   )
 }

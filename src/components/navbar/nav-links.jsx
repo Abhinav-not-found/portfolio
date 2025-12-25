@@ -1,31 +1,14 @@
 "use client"
 import Link from "next/link"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { usePathname } from "next/navigation"
 
 const NavLinks = () => {
-  const [links, setLinks] = useState([])
-  const getLinks = async () => {
-    try {
-      const res = await fetch("/api/navlink", {
-        method: "GET",
-      })
-      const data = await res.json()
-      if (res.ok) {
-        setLinks(data.links)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  useEffect(() => {
-    getLinks()
-  }, [])
   return (
-    <nav className='text-sm flex gap-4'>
-      {links.map((i) => {
-        return <Links key={i.name} href={i.link} label={i.name} />
-      })}
+    <nav className="text-sm flex gap-4">
+      <Links href="/projects" label="projects" />
+      <Links href="/components" label="components" />
+      <Links href="/blogs" label="blogs" />
     </nav>
   )
 }
