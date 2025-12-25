@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { connectDB } from "@/lib/db"
 import Navlink from "@/model/navlink.model"
+import mongoose from "mongoose"
 
 export async function POST(req) {
   try {
@@ -60,3 +61,38 @@ export async function GET(req) {
     )
   }
 }
+
+export async function DELETE(req) {
+  try {
+    await connectDB()
+    const { id } = await req.json()
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json(
+        { message: "Invalid id" },
+        { status: 400 }
+      )
+    }
+
+    const deleted = await Navlink.findByIdAndDelete(id)
+
+    if (!deleted) {
+      return NextResponse.json(
+        { message: "Navlink not found" },
+        { status: 404 }
+      )
+    }
+
+    return NextResponse.json(
+      { message: "Navlink deleted successfully" },
+      { status: 200 }
+    )
+
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Server error" },
+      { status: 500 }
+    )
+  }
+}
+
+

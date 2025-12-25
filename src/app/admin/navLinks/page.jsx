@@ -42,7 +42,7 @@ const NavLinks = async () => {
                 <TableCell>{i.link}</TableCell>
                 <TableCell>
                   <EditBtn />
-                  <DeleteBtn />
+                  <DeleteBtn id={i._id.toString()} />
                 </TableCell>
               </TableRow>
             )
