@@ -2,6 +2,7 @@
 import { socials } from "@/lib/misc"
 import React from "react"
 import { Button } from "../ui/button"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -25,10 +26,14 @@ const Hero = () => {
       <div className=' flex justify-between items-center'>
         <SocialLinks />
         <div className='flex gap-4'>
-          <Button size='sm' variant='outline'>
-            Resume
-          </Button>
-          <Button size='sm'>Get in touch</Button>
+          <Link href={"/resume"}>
+            <Button size='sm' variant='outline'>
+              Resume
+            </Button>
+          </Link>
+          <Link href={"/contact"}>
+            <Button size='sm'>Get in touch</Button>
+          </Link>
         </div>
       </div>
     </section>
