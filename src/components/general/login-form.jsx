@@ -5,38 +5,19 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
 import { useRouter } from "next/navigation"
 import { Spinner } from "../ui/spinner"
-
-// put handle submit in another file and import from there
+import { handleSubmit } from "@/helper/auth.helper"
 
 const LoginForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      })
 
-      if (!res.ok) {
-        // handle invalid credentials here
-        return
-      }
-
-      router.push("/admin/dashboard")
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setLoading(false)
-    }
-  }
   return (
-    <form className='mt-10' onSubmit={(e) => handleSubmit(e)}>
+    <form
+      className='mt-10'
+      onSubmit={(e) => handleSubmit(e, { setLoading, router }, email, password)}
+    >
       <FieldSet>
         <FieldGroup>
           <Field>

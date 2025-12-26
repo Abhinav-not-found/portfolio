@@ -1,6 +1,5 @@
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
-import Container from "@/components/general/container";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({
