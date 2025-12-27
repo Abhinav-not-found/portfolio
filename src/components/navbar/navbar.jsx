@@ -8,7 +8,7 @@ const Navbar = () => {
     <header className='h-18 flex items-center justify-between'>
       <Logo />
       <div className='flex items-center gap-2'>
-        <NavLinks />
+        {/* <NavLinks /> */}
         <ModeToggle />
       </div>
     </header>

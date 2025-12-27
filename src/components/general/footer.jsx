@@ -22,7 +22,7 @@ const Footer = () => {
             Abhinav Kumar
           </Link>
         </p>
-        <p>@2025. All rights reserved</p>
+        <p>@2026. All rights reserved</p>
       </div>
     </footer>
   )

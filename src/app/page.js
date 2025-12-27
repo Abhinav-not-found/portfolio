@@ -9,7 +9,7 @@ export default async function Home() {
     <Container>
       <PublicRoute>
         <Hero />
-        <Project />
+        {/* <Project /> */}
         <TechStack />
       </PublicRoute>
     </Container>
