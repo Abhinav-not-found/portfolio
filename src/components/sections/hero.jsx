@@ -7,16 +7,16 @@ import Link from "next/link"
 const Hero = () => {
   return (
     <section className='w-full h-full space-y-12'>
-      <div className='text-4xl font-inter font-semibold space-y-2 mt-6 tracking-tighter relative'>
-        <h1 className=' '>Hi, I'm Abhinav Kumar</h1>
-        <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-400 to-neutral-400/70 dark:to-neutral-400/70 bg-clip-text text-transparent'>
+      <div className='text-4xl font-inter font-semibold space-y-2 mt-6 tracking-tighter relative selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
+        <h1 className=''>Hi, I'm Abhinav Kumar</h1>
+        <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-200 to-neutral-200 dark:to-neutral-400/70 bg-clip-text text-transparent'>
           A fullstack web developer.
         </h1>
         <h1 className='text-neutral-200 text-3xl dark:text-neutral-700'>
           // Based in India
         </h1>
       </div>
-      <div className=''>
+      <div className='selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
         <p className='text-muted-foreground text-xl font-poppins'>
           I build interactive web apps using MERN stack. With focus on attention
           to detail . Enthusiastic about Next.js, driven by solving problems

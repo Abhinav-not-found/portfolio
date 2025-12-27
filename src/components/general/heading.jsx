@@ -1,7 +1,7 @@
 import React from "react"
 
 export const Heading = ({ children }) => {
-  return <div className=''>{children}</div>
+  return <div className='select-none'>{children}</div>
 }
 
 export const SmallHeading = ({ children }) => {
