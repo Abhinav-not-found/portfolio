@@ -27,7 +27,7 @@ export async function POST(req) {
 
     return NextResponse.json(
       {
-        message: "Message Saved",
+        message: "Message Sent!",
       },
       { status: 201 }
     )

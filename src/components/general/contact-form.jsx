@@ -16,7 +16,9 @@ const ContactForm = () => {
   return (
     <form
       className='mt-10'
-      onSubmit={(e) => handleContactSubmit(e,name,email,message, { setLoading })}
+      onSubmit={(e) =>
+        handleContactSubmit(e, name, email, message, { setLoading })
+      }
     >
       <FieldSet>
         <FieldGroup>
@@ -55,7 +57,7 @@ const ContactForm = () => {
                   <Spinner />
                 </>
               ) : (
-                "submit"
+                "Submit"
               )}
             </Button>
           </Field>

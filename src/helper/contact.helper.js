@@ -1,3 +1,4 @@
+import { toast } from "sonner"
 
 export const handleContactSubmit = async (e, name, email, message, { setLoading }) => {
   e.preventDefault()
@@ -10,7 +11,7 @@ export const handleContactSubmit = async (e, name, email, message, { setLoading 
     })
     const data = await res.json()
     if (res.ok) {
-      console.log(data)
+      toast.success(data.message)
     }
 
   } catch (error) {
