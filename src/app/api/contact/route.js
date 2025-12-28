@@ -1,0 +1,45 @@
+import { connectDB } from "@/lib/db"
+import { NextResponse } from "next/server"
+import Message from "@/model/message.model"
+
+export async function POST(req) {
+  try {
+    await connectDB()
+
+    const { name, email, message } = await req.json()
+    if (
+      !name?.trim() ||
+      !email?.trim() ||
+      !message?.trim()
+    ) {
+      return NextResponse.json(
+        { message: "All fields are required" },
+        { status: 400 }
+      )
+    }
+
+    const newMessage = await Message.create({
+      name,
+      email,
+      message,
+    })
+
+
+    return NextResponse.json(
+      {
+        message: "Message Saved",
+      },
+      { status: 201 }
+    )
+
+
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return NextResponse.json(
+        { message: error.message },
+        { status: 400 }
+      )
+    }
+    return NextResponse.json({ message: "Server error" }, { status: 500 })
+  }
+}
