@@ -33,7 +33,7 @@ const ContactForm = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               id='name'
-              placeholder='John Doe'
+              placeholder='Let me know your name'
             />
           </Field>
           <Field>
@@ -42,7 +42,7 @@ const ContactForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               id='email'
-              placeholder='johnDoe@gmail.com'
+              placeholder='I’ll reply here'
             />
           </Field>
           <Field>
@@ -50,13 +50,13 @@ const ContactForm = () => {
             <Textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder='say hello'
+              placeholder='Share your thoughts, ideas, or questions... or just Say Hi!'
               id='message'
               className={"h-32"}
             />
           </Field>
           <Field orientation='horizontal'>
-            <Button type='submit'>
+            <Button type='submit' disabled={loading}>
               {loading ? (
                 <>
                   <Spinner />

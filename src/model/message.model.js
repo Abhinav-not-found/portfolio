@@ -28,4 +28,4 @@ const messageSchema = new mongoose.Schema({
 )
 
 export default mongoose.models.Message ||
-  mongoose.model("message", messageSchema)
+  mongoose.model("Message", messageSchema)
