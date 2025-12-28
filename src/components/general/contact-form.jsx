@@ -17,7 +17,12 @@ const ContactForm = () => {
     <form
       className='mt-10'
       onSubmit={(e) =>
-        handleContactSubmit(e, name, email, message, { setLoading })
+        handleContactSubmit(e, name, email, message, {
+          setLoading,
+          setName,
+          setEmail,
+          setMessage,
+        })
       }
     >
       <FieldSet>
