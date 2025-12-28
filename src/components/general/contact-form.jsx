@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { Spinner } from "../ui/spinner"
+import { handleContactSubmit } from "@/helper/contact.helper"
 
 const ContactForm = () => {
   const [name, setName] = useState("")
@@ -15,7 +16,7 @@ const ContactForm = () => {
   return (
     <form
       className='mt-10'
-      onSubmit={(e) => handleContactSubmit(e, { setLoading })}
+      onSubmit={(e) => handleContactSubmit(e,name,email,message, { setLoading })}
     >
       <FieldSet>
         <FieldGroup>
