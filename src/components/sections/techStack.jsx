@@ -15,7 +15,7 @@ const TechStack = () => {
         <BigHeading>Stack</BigHeading>
       </Heading>
 
-      <div className='grid grid-cols-7 gap-6 mt-6'>
+      <div className='grid grid-cols-7 gap-6 mt-6 select-none'>
         {techStack.map((tech) => (
           <Item key={tech.name} {...tech} />
         ))}

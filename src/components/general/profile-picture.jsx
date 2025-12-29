@@ -28,7 +28,7 @@ const ProfilePic = () => {
   }
 
   return (
-    <div className='mt-10 cursor-pointer inline-block' onClick={handleClick}>
+    <div className='mt-10 cursor-pointer inline-block z-50' onClick={handleClick}>
       <Image
         src={`/images/profile/${profilePictures[index]}.jpg`}
         alt='profile_pic'
