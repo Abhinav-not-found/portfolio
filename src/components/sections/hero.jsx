@@ -3,10 +3,12 @@ import { socials } from "@/lib/misc"
 import React from "react"
 import { Button } from "../ui/button"
 import Link from "next/link"
+import ProfilePic from "../general/profile-picture"
 
 const Hero = () => {
   return (
     <section className='w-full h-full space-y-12'>
+      <ProfilePic/>
       <div className='text-4xl font-inter font-semibold space-y-2 mt-6 tracking-tighter relative selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
         <h1 className=''>Hi, I'm Abhinav Kumar</h1>
         <h1 className='text-5xl bg-linear-to-b from-neutral-400 dark:from-neutral-200 to-neutral-200 dark:to-neutral-400/70 bg-clip-text text-transparent'>

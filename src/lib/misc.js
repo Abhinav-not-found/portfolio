@@ -30,11 +30,11 @@ export const socials = [
 
 
 export const techStack = [
-  { name: "MongoDB", src: "/images/mongodb.png" },
-  { name: "Express", src: "/images/express.png" },
-  { name: "React", src: "/images/react.png" },
-  { name: "Node.js", src: "/images/nodejs.png" },
-  { name: "Next.js", src: "/images/nextjs.png" },
-  { name: "Tailwind CSS", src: "/images/tailwind.png" },
-  { name: "Python", src: "/images/python.png" },
+  { name: "MongoDB", src: "/images/tech/mongodb.png" },
+  { name: "Express", src: "/images/tech/express.png" },
+  { name: "React", src: "/images/tech/react.png" },
+  { name: "Node.js", src: "/images/tech/nodejs.png" },
+  { name: "Next.js", src: "/images/tech/nextjs.png" },
+  { name: "Tailwind CSS", src: "/images/tech/tailwind.png" },
+  { name: "Python", src: "/images/tech/python.png" },
 ]
