@@ -6,6 +6,7 @@ import Link from "next/link"
 import ProfilePic from "../general/profile-picture"
 import { motion, useAnimation } from "motion/react"
 import Image from "next/image"
+// make nextjs appear from behind profile picture bigger and same size as the profile picture
 
 const Hero = () => {
   const controls = useAnimation()
@@ -30,7 +31,7 @@ const Hero = () => {
         className='size-20 absolute top-15 -z-10 left-6 origin-bottom-left rounded-full'
       >
         <Image
-          src={"/images/tech/nextjs.png"}
+          src={"/images/tech/nextjs2.png"}
           fill
           alt='nextjs'
           className='object-contain rotate-45'

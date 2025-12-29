@@ -27,7 +27,7 @@ const TechStack = () => {
 const Item = ({ name, src }) => {
   return (
     <div className='flex flex-col items-center gap-2'>
-      <Image src={src} alt={name} width={40} height={40} priority={false} />
+      <Image src={src} alt={name} width={40} height={40} priority={true} />
     </div>
   )
 }

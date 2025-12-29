@@ -34,7 +34,7 @@ export const techStack = [
   { name: "Express", src: "/images/tech/express.png" },
   { name: "React", src: "/images/tech/react.png" },
   { name: "Node.js", src: "/images/tech/nodejs.png" },
-  { name: "Next.js", src: "/images/tech/nextjs.png" },
+  { name: "Next.js", src: "/images/tech/nextjs2.png" },
   { name: "Tailwind CSS", src: "/images/tech/tailwind.png" },
   { name: "Python", src: "/images/tech/python.png" },
 ]
