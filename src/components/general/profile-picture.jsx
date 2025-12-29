@@ -4,6 +4,7 @@ import Image from "next/image"
 import React, { useState } from "react"
 
 // make the picture background change in dark mode
+// add sound of camera when clicked
 
 const ProfilePic = () => {
   const profilePictures = [
@@ -27,13 +28,13 @@ const ProfilePic = () => {
   }
 
   return (
-    <div className='mt-10 cursor-pointer' onClick={handleClick}>
+    <div className='mt-10 cursor-pointer inline-block' onClick={handleClick}>
       <Image
         src={`/images/profile/${profilePictures[index]}.jpg`}
         alt='profile_pic'
         width={120}
         height={120}
-        className='rounded-full dark:brightness-90'
+        className='rounded-full dark:brightness-90 select-none'
         priority
       />
     </div>
