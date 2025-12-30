@@ -11,7 +11,7 @@ import Image from "next/image"
 const Hero = () => {
   const controls = useAnimation()
   return (
-    <section className='w-full h-full space-y-12 relative'>
+    <section className='w-full h-full space-y-12 relative pt-10'>
       <ProfilePic />
       <div className='text-4xl font-inter font-semibold space-y-2 tracking-tighter relative selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
         <h1 className=''>Hi, I'm Abhinav Kumar</h1>
@@ -28,7 +28,7 @@ const Hero = () => {
 
       <motion.div
         animate={controls}
-        className='size-20 absolute top-15 -z-10 left-6 origin-bottom-left rounded-full'
+        className='size-20 absolute top-20 -z-10 left-6 origin-bottom-left rounded-full'
       >
         <Image
           src={"/images/tech/nextjs2.png"}

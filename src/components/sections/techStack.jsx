@@ -5,7 +5,6 @@ import Image from "next/image"
 import { techStack } from "@/lib/misc"
 
 // add tooltip
-// change nextjs icon to white, when in dark mode
 
 const TechStack = () => {
   return (

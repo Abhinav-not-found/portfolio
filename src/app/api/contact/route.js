@@ -43,3 +43,20 @@ export async function POST(req) {
     return NextResponse.json({ message: "Server error" }, { status: 500 })
   }
 }
+
+export async function GET() {
+  try {
+    await connectDB()
+
+    const data = await Message.find({}).sort({ createdAt: -1 })
+    return NextResponse.json(
+      {
+        message: "Fetched successfully",
+        data: data
+      },
+      { status: 200 },
+    )
+  } catch (error) {
+    return NextResponse.json({ message: "Server error" }, { status: 500 })
+  }
+}

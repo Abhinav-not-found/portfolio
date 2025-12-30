@@ -1,3 +1,4 @@
+
 import { toast } from "sonner"
 
 export const handleContactSubmit = async (
@@ -7,11 +8,11 @@ export const handleContactSubmit = async (
   message,
   { setLoading, setName, setEmail, setMessage }
 ) => {
+  e.preventDefault()
   if (!name || !email || !message) {
     toast.error("All fields are required")
   }
 
-  e.preventDefault()
   setLoading(true)
   try {
     const res = await fetch("/api/contact", {
@@ -25,6 +26,25 @@ export const handleContactSubmit = async (
       setName("")
       setEmail("")
       setMessage("")
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    setLoading(false)
+  }
+}
+
+
+export const handleDelete = async ({ router, data, setLoading }) => {
+  setLoading(true)
+  try {
+    const res = await fetch(`/api/contact/${data._id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+    if (res.ok) {
+      toast.success('Deleted')
+      router.refresh()
     }
   } catch (error) {
     console.log(error)

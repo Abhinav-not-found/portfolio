@@ -7,7 +7,7 @@ import React from 'react'
 const Notfound = () => {
   return (
     <Container>
-      <main className='h-screen space-y-6'>
+      <main className='h-screen space-y-6 pt-10'>
         <h1 className='text-center text-9xl font-bold mt-18 bg-linear-to-b bg-clip-text from-neutral-200 dark:from-neutral-800 to-neutral-50 dark:via-neutral-800 dark:to-neutral-950 text-transparent select-none'>AK</h1>
         <div className='flex justify-center relative'>
           <h1 className='text-center text-4xl tracking-tight font-inter font-medium'>404 - Page Not Found</h1>

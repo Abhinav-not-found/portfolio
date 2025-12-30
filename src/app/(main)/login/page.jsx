@@ -4,8 +4,8 @@ import React from "react"
 
 const Login = () => {
   return (
-    <PublicRoute className='mt-8 h-[60vh]'>
-      <p className='text-center text-muted-foreground text-2xl'>
+    <PublicRoute className='mt-8 h-[60vh] '>
+      <p className='text-center text-muted-foreground text-2xl pt-20'>
         Oh no 😨, You are not suppose to see this page 😆
       </p>
       <div className='max-w-lg mx-auto mt-20'>

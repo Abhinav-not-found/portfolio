@@ -5,7 +5,7 @@ import { ModeToggle } from "../ui/mode-toggle"
 
 const Navbar = () => {
   return (
-    <header className='h-18 flex items-center justify-between'>
+    <header className='h-18 w-2xl bg-white dark:bg-black z-50 fixed flex items-center justify-between'>
       <Logo />
       <div className='flex items-center gap-2'>
         {/* <NavLinks /> */}
