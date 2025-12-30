@@ -11,19 +11,19 @@ import Image from "next/image"
 const Hero = () => {
   const controls = useAnimation()
   return (
-    <section className='w-full h-full space-y-12 relative pt-10'>
+    <section className='w-full h-full space-y-12 relative pt-10 px-4 md:px-0'>
       <ProfilePic />
-      <div className='text-4xl font-inter font-semibold space-y-2 tracking-tighter relative selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
-        <h1 className=''>Hi, I'm Abhinav Kumar</h1>
-        <h1 className='text-5xl bg-neutral-400/70 dark:bg-neutral-300/70 bg-clip-text text-transparent'>
+      <div className='text-3xl md:text-4xl font-inter font-semibold space-y-2 tracking-tighter relative selection:bg-neutral-800 dark:selection:bg-neutral-200 selection:text-white dark:selection:text-black'>
+        <h2 className=''>Hi, I'm Abhinav Kumar</h2>
+        <h1 className='text-4xl md:text-5xl bg-neutral-400/70 dark:bg-neutral-300/70 bg-clip-text text-transparent'>
           A fullstack web developer.
         </h1>
         {/* <h1 className='bg-linear-to-b from-orange-500 via-neutral-200/80 via-60% to-green-600 bg-clip-text text-transparent'>
           India
         </h1> */}
-        <h1 className='text-neutral-200 text-3xl dark:text-neutral-700'>
+        <h2 className='text-neutral-200 text-3xl dark:text-neutral-700'>
           // Based in India
-        </h1>
+        </h2>
       </div>
 
       <motion.div

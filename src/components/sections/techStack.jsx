@@ -4,11 +4,9 @@ import { BigHeading, Heading, SmallHeading } from "../general/heading"
 import Image from "next/image"
 import { techStack } from "@/lib/misc"
 
-// add tooltip
-
 const TechStack = () => {
   return (
-    <section className='mt-20'>
+    <section className='mt-20 px-4 md:px-0'>
       <Heading>
         <SmallHeading>Tech</SmallHeading>
         <BigHeading>Stack</BigHeading>

@@ -2,6 +2,12 @@ import LoginForm from "@/components/general/login-form"
 import PublicRoute from "@/components/routes/public-route"
 import React from "react"
 
+export const metadata = {
+  title: "Login | Full-Stack Developer Portfolio",
+  description: "Secure login page for accessing admin or private features.",
+  robots: "noindex",
+}
+
 const Login = () => {
   return (
     <PublicRoute className='mt-8 h-[60vh] '>

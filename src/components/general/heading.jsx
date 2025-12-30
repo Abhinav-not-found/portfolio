@@ -11,9 +11,9 @@ export const SmallHeading = ({ children }) => {
 }
 export const BigHeading = ({ children }) => {
   return (
-    <h1 className='font-inter text-3xl tracking-tight font-medium'>
+    <h2 className='font-inter text-3xl tracking-tight font-medium'>
       {children}
-    </h1>
+    </h2>
   )
 }
 
