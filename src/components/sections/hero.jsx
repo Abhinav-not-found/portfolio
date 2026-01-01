@@ -21,7 +21,7 @@ const Hero = () => {
         {/* <h1 className='bg-linear-to-b from-orange-500 via-neutral-200/80 via-60% to-green-600 bg-clip-text text-transparent'>
           India
         </h1> */}
-        <h2 className='text-neutral-200 text-3xl dark:text-neutral-700'>
+        <h2 className='text-neutral-200 text-2xl md:text-3xl dark:text-neutral-700'>
           // Based in India
         </h2>
       </div>
