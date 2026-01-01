@@ -28,7 +28,7 @@ const Hero = () => {
 
       <motion.div
         animate={controls}
-        className='size-20 absolute top-20 -z-10 left-6 origin-bottom-left rounded-full'
+        className='size-20 absolute top-22 md:top-20 -z-10 left-8 md:left-6 origin-bottom-left rounded-full'
       >
         <Image
           src={"/images/tech/nextjs2.png"}
@@ -52,9 +52,9 @@ const Hero = () => {
           , driven by solving problems that improves user experience .{" "}
         </p>
       </div>
-      <div className=' flex justify-between items-center'>
+      <div className='flex justify-between items-center'>
         <SocialLinks />
-        <div className='flex gap-4 select-none'>
+        <div className='flex gap-2 md:gap-4 select-none'>
           <Link href={"/resume"}>
             <Button
               size='sm'
@@ -79,7 +79,7 @@ const Hero = () => {
 
 const SocialLinks = () => {
   return (
-    <div className='flex gap-4 text-muted-foreground'>
+    <div className='flex gap-2 md:gap-4 text-muted-foreground'>
       {socials.map(({ icon: Icon, href, label }) => (
         <a
           key={label}
