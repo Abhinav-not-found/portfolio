@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4 md:px-0">
         <Logo />
         <div className="flex items-center gap-2">
-          {/* <NavLinks /> */}
+          <NavLinks />
           <ModeToggle />
         </div>
       </div>

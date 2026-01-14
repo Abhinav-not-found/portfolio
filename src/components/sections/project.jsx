@@ -1,5 +1,4 @@
-import { ProjectCard } from "@/app/(main)/projects/page"
-import React from "react"
+import ProjectCard from "../card/project-card"
 import { BigHeading, Heading, SmallHeading } from "../general/heading"
 
 const Project = () => {
