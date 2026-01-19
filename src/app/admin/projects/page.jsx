@@ -1,11 +1,14 @@
+import ProjectCard from "@/components/card/project-card"
 import { BigHeading, Heading } from "@/components/general/heading"
 import { Button } from "@/components/ui/button"
+import { getAllProjects } from "@/helper/server/get-all-projects"
 import { Plus } from "lucide-react"
 import Link from "next/link"
 
-const AdminProject = () => {
+const AdminProject = async () => {
+  const data = await getAllProjects()
+  console.log(data)
 
-  // get all projects
   return (
     <main>
       <div className='flex justify-between items-center'>
@@ -18,6 +21,12 @@ const AdminProject = () => {
             Create
           </Button>
         </Link>
+      </div>
+
+      <div className='mt-5'>
+        {data.map((item, index) => {
+          return <ProjectCard key={index} data={item} />
+        })}
       </div>
     </main>
   )

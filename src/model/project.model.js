@@ -20,7 +20,7 @@ const projectSchema = new mongoose.Schema({
   },
   techStack: {//array of text
     type: [String],
-    default: ['']
+    default: []
   },
   content: {
     type: String,// markdown content or html content from tip-tap editor
@@ -49,5 +49,6 @@ const projectSchema = new mongoose.Schema({
 },
   { timestamps: true }
 )
-export default mongoose.models.project ||
+export default mongoose.models.Project ||
   mongoose.model("Project", projectSchema)
+

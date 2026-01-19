@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Badge } from "../ui/badge"
 
-const ProjectCard = ({ latest = false }) => {
+const ProjectCard = ({ data }) => {
+  const latest = data.latest || false
   return (
     <div className='w-82 h-90 bg-neutral-50 dark:bg-neutral-900 rounded-md p-3'>
       <div className='bg-neutral-100 dark:bg-neutral-800 w-full h-36 rounded-md relative'>
@@ -19,16 +20,18 @@ const ProjectCard = ({ latest = false }) => {
       <div className='p-1 mt-2'>
         <Link
           href={"/projects/name"}
-          className='text-xl font-medium tracking-tight mt-2 hover:underline underline-offset-2'
+          className='text-xl font-medium tracking-tight mt-2 hover:underline underline-offset-2 first-letter:uppercase'
         >
-          Thought Space
+          {data.title || "Title"}
         </Link>
         <p className='text-sm text-muted-foreground mt-2 leading-5'>
-          Thought Space is a modern blogging platform for writing, publishing,
-          and sharing ideas with a clean UI, developer-focused experience.
+          {data.desc ||
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quis eum inventore voluptas harum perspiciatis ipsum"}
         </p>
         <div className='mt-2'>
-          <p>techstack</p>
+          {data.techStack.map((i, index) => {
+            return <p key={index}>{i}</p>
+          })}
         </div>
       </div>
     </div>
