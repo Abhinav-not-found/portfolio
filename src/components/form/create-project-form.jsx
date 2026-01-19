@@ -8,59 +8,61 @@ import { Switch } from "../ui/switch"
 import { useState } from "react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { handleCreateProject } from "@/helper/client/project.helper"
+
+// after that content : tip tap editor
+
+const TECH_OPTIONS = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Tailwind",
+  "TypeScript",
+]
 
 const CreateProjectForm = () => {
-  const [form, setForm] = useState({ title: "", desc: "" })
+  const [form, setForm] = useState({
+    title: "",
+    desc: "",
+    techstack: [],
+    github: "",
+    live: "",
+    featured: false,
+    latest: false,
+  })
+
+  const [thumbnail, setThumbnail] = useState(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { id, value } = e.target
     setForm((prev) => ({ ...prev, [id]: value }))
   }
 
-  const handleSubmitForm = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      const res = await fetch("", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (!res.ok) {
-        switch (data.code) {
-          case "FIELDS_REQUIRED":
-          case "PASSWORD_TOO_SHORT":
-          case "EMAIL_ALREADY_REGISTERED":
-          case "VALIDATION_ERROR":
-          case "ACCOUNT_BANNED":
-          case "REGISTER_DISABLED":
-            toast.error(data.message)
-            break
-          default:
-            toast.error(data.message || "Something went wrong")
-        }
-        return
-      }
-      toast.success(data.message)
-      router.push("/admin/projects")
-      router.refresh()
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setLoading(false)
-    }
+  const toggleTech = (tech) => {
+    setForm((prev) => ({
+      ...prev,
+      techstack: prev.techstack.includes(tech)
+        ? prev.techstack.filter((t) => t !== tech)
+        : [...prev.techstack, tech],
+    }))
   }
+
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form
+      onSubmit={(e) =>
+        handleCreateProject(e, form, thumbnail, toast, router, { setLoading })
+      }
+    >
       <FieldSet>
         <Field>
           <FieldLabel htmlFor='title'>Title</FieldLabel>
           <Input
             value={form.title}
-            onChange={handleChange}
+            onChange={handleInputChange}
             id='title'
             type={"text"}
             placeholder=''
@@ -68,45 +70,89 @@ const CreateProjectForm = () => {
         </Field>
         <Field>
           <FieldLabel htmlFor='desc'>Description</FieldLabel>
-          <Textarea value={form.desc} onChange={handleChange} id='desc' />
+          <Textarea value={form.desc} onChange={handleInputChange} id='desc' />
         </Field>
-        {/* <div className='grid grid-cols-2 gap-4'>
+
+        <div className='grid grid-cols-2 gap-4'>
           <Field>
-            <FieldLabel htmlFor='techstack'>TechStack</FieldLabel>
+            <FieldLabel>Tech Stack</FieldLabel>
+            <div className='grid grid-cols-2 gap-2 mt-2'>
+              {TECH_OPTIONS.map((tech) => (
+                <label
+                  key={tech}
+                  className='flex items-center gap-2 cursor-pointer text-sm'
+                >
+                  <input
+                    type='checkbox'
+                    checked={form.techstack.includes(tech)}
+                    onChange={() => toggleTech(tech)}
+                    className='accent-black'
+                  />
+                  {tech}
+                </label>
+              ))}
+            </div>
           </Field>
-          <Field>
-            <FieldLabel htmlFor='thumbnail'>Thumbnail</FieldLabel>
-            <Input
-              id='thumbnail'
-              type={"file"}
-              placeholder='JohnDoe@gmail.com'
-            />
-          </Field>
+
+          <div>
+            <Field>
+              <FieldLabel htmlFor='thumbnail'>Thumbnail</FieldLabel>
+              <Input
+                id='thumbnail'
+                type={"file"}
+                accept='image/*'
+                onChange={(e) => setThumbnail(e.target.files?.[0] || null)}
+              />
+            </Field>
+            <div className='grid grid-cols-3 mt-6'>
+              <Field>
+                <div className='flex items-center space-x-2'>
+                  <FieldLabel htmlFor='featured'>Featured</FieldLabel>
+                  <Switch
+                    checked={form.featured}
+                    onCheckedChange={(val) =>
+                      setForm((prev) => ({ ...prev, featured: val }))
+                    }
+                  />
+                </div>
+              </Field>
+              <Field>
+                <div className='flex items-center space-x-2'>
+                  <FieldLabel htmlFor='latest'>Latest</FieldLabel>
+                  <Switch
+                    checked={form.latest}
+                    onCheckedChange={(val) =>
+                      setForm((prev) => ({ ...prev, latest: val }))
+                    }
+                  />
+                </div>
+              </Field>
+            </div>
+          </div>
         </div>
+
         <div className='grid grid-cols-2 gap-4'>
           <Field>
             <FieldLabel htmlFor='live'>Live</FieldLabel>
-            <Input id='live' type={"text"} placeholder='' />
+            <Input
+              value={form.live}
+              onChange={handleInputChange}
+              id='live'
+              type={"text"}
+              placeholder=''
+            />
           </Field>
           <Field>
             <FieldLabel htmlFor='github'>Github</FieldLabel>
-            <Input id='github' type={"text"} placeholder='' />
+            <Input
+              value={form.github}
+              onChange={handleInputChange}
+              id='github'
+              type={"text"}
+              placeholder=''
+            />
           </Field>
         </div>
-        <div className='grid grid-cols-5'>
-          <Field>
-            <div className='flex items-center space-x-2'>
-              <FieldLabel htmlFor='featured'>Featured</FieldLabel>
-              <Switch />
-            </div>
-          </Field>
-          <Field>
-            <div className='flex items-center space-x-2'>
-              <FieldLabel htmlFor='latest'>Latest</FieldLabel>
-              <Switch />
-            </div>
-          </Field>
-        </div> */}
 
         {/* <Field>
           <FieldLabel htmlFor='content'>Content</FieldLabel>

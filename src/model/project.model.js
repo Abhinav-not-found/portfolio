@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
-import bcrypt from 'bcryptjs'
 
-const UserSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Title is required"],
@@ -14,7 +13,7 @@ const UserSchema = new mongoose.Schema({
     lowercase: true,
     unique: true
   },
-  description: {
+  desc: {
     type: String,
     required: [true, "Description is required"],
     trim: true,
@@ -25,32 +24,30 @@ const UserSchema = new mongoose.Schema({
   },
   content: {
     type: String,// markdown content or html content from tip-tap editor
+    default: ''
   },
   thumbnail: { // picture or banner
     type: String,
+    default: ''
   },
   live: { // link
     type: String,
+    default: ''
   },
   github: {// link
     type: String,
+    default: ''
   },
   latest: {// badge
     type: Boolean,
+    default: false
   },
   featured: {// shown on homepage or not
     type: Boolean,
+    default: false
   },
 },
   { timestamps: true }
 )
-
-UserSchema.pre("save", async function () {
-  if (!this.isModified("password")) return
-  this.password = await bcrypt.hash(this.password, 10)
-})
-
-
-
-export default mongoose.models.User ||
-  mongoose.model("User", UserSchema)
+export default mongoose.models.project ||
+  mongoose.model("Project", projectSchema)

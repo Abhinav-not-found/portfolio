@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { Spinner } from "../ui/spinner"
-import { handleContactSubmit } from "@/helper/contact.helper"
+import { handleContactSubmit } from "@/helper/client/contact.helper"
 
 const ContactForm = () => {
   const [name, setName] = useState("")

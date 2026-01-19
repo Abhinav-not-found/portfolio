@@ -5,7 +5,7 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
 import { useRouter } from "next/navigation"
 import { Spinner } from "../ui/spinner"
-import { handleSubmit } from "@/helper/auth.helper"
+import { handleSubmit } from "@/helper/client/auth.helper"
 
 const LoginForm = () => {
   const router = useRouter()

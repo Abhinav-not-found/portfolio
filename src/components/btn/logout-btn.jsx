@@ -4,7 +4,7 @@ import { Button } from "../ui/button"
 import { LogOut } from "lucide-react"
 import { Spinner } from "../ui/spinner"
 import { useRouter } from "next/navigation"
-import { handleLogout } from "@/helper/auth.helper"
+import { handleLogout } from "@/helper/client/auth.helper"
 
 const LogoutBtn = () => {
   const router = useRouter()

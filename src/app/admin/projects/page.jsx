@@ -4,6 +4,8 @@ import { Plus } from "lucide-react"
 import Link from "next/link"
 
 const AdminProject = () => {
+
+  // get all projects
   return (
     <main>
       <div className='flex justify-between items-center'>

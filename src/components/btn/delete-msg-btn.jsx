@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { Button } from "../ui/button"
 import { Trash } from "lucide-react"
-import { handleDelete } from "@/helper/contact.helper"
+import { handleDelete } from "@/helper/client/contact.helper"
 import { useRouter } from "next/navigation"
 import { Spinner } from "../ui/spinner"
 
