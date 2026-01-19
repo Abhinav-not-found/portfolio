@@ -1,4 +1,4 @@
-import LoginForm from "@/components/general/login-form"
+import LoginForm from "@/components/form/login-form"
 import PublicRoute from "@/components/routes/public-route"
 import React from "react"
 

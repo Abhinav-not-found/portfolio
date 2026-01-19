@@ -1,4 +1,4 @@
-import ContactForm from "@/components/general/contact-form"
+import ContactForm from "@/components/form/contact-form"
 import Header from "@/components/general/header"
 import PublicRoute from "@/components/routes/public-route"
 
