@@ -11,8 +11,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, "Slug is required"],
     trim: true,
-    lowercase:true,
-    unique:true
+    lowercase: true,
+    unique: true
   },
   description: {
     type: String,
@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
   },
   techStack: {//array of text
     type: [String],
-    required: [true, "Techstack is required"],
+    default: ['']
   },
   content: {
     type: String,// markdown content or html content from tip-tap editor
