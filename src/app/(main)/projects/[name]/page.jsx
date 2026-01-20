@@ -12,7 +12,7 @@ const page = async ({ params }) => {
   console.log(data)
   return (
     <main className='pt-20'>
-      <div className='w-full h-80 bg-neutral-100 dark:bg-neutral-900 rounded-md relative border border-neutral-400'>
+      <div className='w-full h-80 bg-neutral-100 dark:bg-neutral-900 rounded-md relative border border-neutral-300'>
         {data?.thumbnail && (
           <Image
             src={data?.thumbnail}

@@ -1,7 +1,10 @@
+import { getAllProjects } from "@/helper/server/project/get-all-projects"
 import ProjectCard from "../card/project-card"
 import { BigHeading, Heading, SmallHeading } from "../general/heading"
 
-const Project = () => {
+const Project = async () => {
+  const data = await getAllProjects()
+  const featuredProjects = data?.filter((project) => project.featured === true)
   return (
     <section className='mt-20'>
       <Heading>
@@ -9,8 +12,9 @@ const Project = () => {
         <BigHeading>Projects</BigHeading>
       </Heading>
       <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-6'>
-        <ProjectCard />
-        <ProjectCard />
+        {featuredProjects.map((item, index) => {
+          return <ProjectCard key={index} data={item} />
+        })}
       </div>
     </section>
   )

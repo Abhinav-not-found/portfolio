@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Badge } from "../ui/badge"
 import Image from "next/image"
+import { Eye, Github } from "lucide-react"
 
 const techIcons = {
   "next.js": "/svgs/nextjs.svg",
@@ -12,17 +13,30 @@ const techIcons = {
 
 const ProjectCard = ({ data }) => {
   const latest = data?.latest || false
-  console.log(data)
   return (
-    <div className='w-82 h-90 bg-neutral-50 dark:bg-neutral-900 rounded-md p-3'>
-      <div className='bg-neutral-100 dark:bg-neutral-800 w-full h-36 rounded-md relative'>
+    <div className='w-82 h-82 bg-neutral-100/60 dark:bg-neutral-800/70 rounded-md p-2 border border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'>
+      <div className='bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200'>
+        <Link
+          href={`${data?.github}`}
+          target='_blank'
+          className='w-8 h-12 border bg-white dark:bg-neutral-200 absolute right-2 bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-muted-foreground hover:text-black'
+        >
+          <Github className='size-5' />
+        </Link>
+        <Link
+          href={`${data?.live}`}
+          target='_blank'
+          className='w-8 h-12 border bg-white dark:bg-neutral-200 absolute right-12 bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-muted-foreground hover:text-black'
+        >
+          <Eye className='size-5' />
+        </Link>
         {data?.thumbnail && (
           <Image
             src={data?.thumbnail}
             alt={data?.title || "Blog banner"}
             fill
             priority
-            className='object-cover rounded-t-md dark:brightness-90'
+            className='object-cover rounded-md dark:brightness-90'
           />
         )}
 
