@@ -3,6 +3,7 @@
 
 # optimize
 - images to webp formate
+- fix project card for mobile view
 
 
 # later

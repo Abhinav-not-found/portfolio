@@ -14,22 +14,14 @@ const techIcons = {
 const ProjectCard = ({ data }) => {
   const latest = data?.latest || false
   return (
-    <div className='w-82 h-82 bg-neutral-100/60 dark:bg-neutral-800/70 rounded-md p-2 border border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'>
+    <div className='size-78 md:size-82 bg-neutral-100/60 dark:bg-neutral-800/70 rounded-md p-2 border border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'>
       <div className='bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200'>
-        <Link
-          href={`${data?.github}`}
-          target='_blank'
-          className='w-8 h-12 border bg-white dark:bg-neutral-200 absolute right-2 bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-muted-foreground hover:text-black'
-        >
+        <LinkElement href={`${data?.github}`} space='2'>
           <Github className='size-5' />
-        </Link>
-        <Link
-          href={`${data?.live}`}
-          target='_blank'
-          className='w-8 h-12 border bg-white dark:bg-neutral-200 absolute right-12 bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-muted-foreground hover:text-black'
-        >
+        </LinkElement>
+        <LinkElement href={`${data?.live}`} space='12'>
           <Eye className='size-5' />
-        </Link>
+        </LinkElement>
         {data?.thumbnail && (
           <Image
             src={data?.thumbnail}
@@ -74,6 +66,18 @@ const ProjectCard = ({ data }) => {
         </div>
       </div>
     </div>
+  )
+}
+
+const LinkElement = ({ children, href, space }) => {
+  return (
+    <Link
+      href={href}
+      target='_blank'
+      className={`w-8 h-12 border bg-white dark:bg-neutral-200 absolute right-${space} bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-muted-foreground hover:text-black`}
+    >
+      {children}
+    </Link>
   )
 }
 
