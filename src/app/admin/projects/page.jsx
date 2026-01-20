@@ -7,7 +7,6 @@ import Link from "next/link"
 
 const AdminProject = async () => {
   const data = await getAllProjects()
-  console.log(data)
 
   return (
     <main>
