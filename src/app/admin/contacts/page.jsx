@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { getContacts } from "@/helper/server/contact-server.helper"
+import { getContacts } from "@/helper/server/contact/contact-server.helper"
 
 const AdminContact = async () => {
   const data = await getContacts()

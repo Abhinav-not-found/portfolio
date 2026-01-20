@@ -1,7 +1,5 @@
 # next
 - add tiptap for create - project
-- add icons for project card techstack section
-- work on /project/name page
 
 # optimize
 - images to webp formate

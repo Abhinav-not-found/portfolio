@@ -2,7 +2,7 @@ import React from "react"
 import Header from "@/components/general/header"
 import PublicRoute from "@/components/routes/public-route"
 import ProjectCard from "@/components/card/project-card"
-import { getAllProjects } from "@/helper/server/get-all-projects"
+import { getAllProjects } from "@/helper/server/project/get-all-projects"
 
 const page = async () => {
   const data = await getAllProjects()

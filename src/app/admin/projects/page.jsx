@@ -1,7 +1,7 @@
 import ProjectCard from "@/components/card/project-card"
 import { BigHeading, Heading } from "@/components/general/heading"
 import { Button } from "@/components/ui/button"
-import { getAllProjects } from "@/helper/server/get-all-projects"
+import { getAllProjects } from "@/helper/server/project/get-all-projects"
 import { Plus } from "lucide-react"
 import Link from "next/link"
 
