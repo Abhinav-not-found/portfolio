@@ -1,14 +1,13 @@
 "use client"
 import Link from "next/link"
-import React from "react"
 import { usePathname } from "next/navigation"
 
 const NavLinks = () => {
   return (
     <nav className="text-sm flex gap-4">
       <Links href="/projects" label="projects" />
-      {/* <Links href="/components" label="components" />
-      <Links href="/blogs" label="blogs" /> */}
+      <Links href="/blocks" label="blocks" />
+      {/* <Links href="/blogs" label="blogs" /> */}
     </nav>
   )
 }

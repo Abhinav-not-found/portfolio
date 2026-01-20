@@ -1,4 +1,3 @@
-import React from "react"
 import Logo from "../navbar/logo"
 import NavLinks from "../navbar/nav-links"
 import { ModeToggle } from "../ui/mode-toggle"
