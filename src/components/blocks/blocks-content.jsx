@@ -9,7 +9,9 @@ import Component from "./component"
 const BlocksContent = () => {
   const [active, setActive] = useState("All")
 
-  const TABS = ["All", "Template", "Section", "Component"]
+  const TABS = ["All",
+     "Template", "Section", "Component"
+    ]
 
   const CONTENT_MAP = {
     All: <All />,
