@@ -10,42 +10,38 @@ const BtnGrp = () => {
   return (
     <>
       <ButtonGroup className='mt-4'>
-        <Button
-          onClick={() => setActive("preview")}
-          variant={active === "preview" ? "default" : "outline"}
-          className={
-            active === "preview"
-              ? "text-white dark:text-white "
-              : "text-muted-foreground"
-          }
-        >
+        <Btn code='preview' active={active} setActive={setActive}>
           <Eye />
           Preview
-        </Button>
-
-        <Button
-          onClick={() => setActive("code")}
-          variant={active === "code" ? "default" : "outline"}
-          className={
-            active === "code"
-              ? "text-white dark:text-black"
-              : "text-muted-foreground"
-          }
-        >
+        </Btn>
+        <Btn code='code' active={active} setActive={setActive}>
           <SquareTerminal />
           Code
-        </Button>
+        </Btn>
       </ButtonGroup>
-      {active == "preview" ? (
-        <div className='mt-4 border rounded-lg w-full h-72'>
-          preview
-        </div>
-      ) : (
-        <div className='mt-4 border rounded-lg w-full h-72'>
-          code
-        </div>
-      )}
+
+      <div className='mt-4 border rounded-lg w-full h-72'>
+        {active === "preview" ? "preview" : "code"}
+      </div>
     </>
+  )
+}
+
+const Btn = ({ code, active, setActive, children }) => {
+  const isActive = active === code
+
+  return (
+    <Button
+      onClick={() => setActive(code)}
+      variant={isActive ? "default" : "outline"}
+      className={
+        isActive
+          ? "text-black dark:text-white bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-200"
+          : "text-muted-foreground"
+      }
+    >
+      {children}
+    </Button>
   )
 }
 
