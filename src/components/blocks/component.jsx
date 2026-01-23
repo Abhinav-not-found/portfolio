@@ -1,9 +1,10 @@
-import React from 'react'
+import Link from "next/link"
+import React from "react"
 
 const Component = () => {
   return (
     <section>
-      Component
+      <Link href={"/blocks/components/button"}>button</Link>
     </section>
   )
 }
