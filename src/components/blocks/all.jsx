@@ -1,3 +1,4 @@
+// change bento to large span to columns not rows
 const All = () => {
   return (
     <section className='mt-8'>

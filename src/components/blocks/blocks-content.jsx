@@ -6,6 +6,8 @@ import Template from "./template"
 import Section from "./section"
 import Component from "./component"
 
+//change bento 
+
 const BlocksContent = () => {
   const [active, setActive] = useState("All")
 
