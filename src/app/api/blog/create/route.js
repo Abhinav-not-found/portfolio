@@ -1,26 +1,12 @@
 import { NextResponse } from "next/server"
 import { connectDB } from "@/lib/db"
-import Blog from "@/models/blog.model"
-import { getUserId } from "@/helpers/server/user/get-userId"
-import ImageKit from "imagekit"
-
-
-const imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-})
+import Blog from "@/model/blog.model"
+import { getUserId } from "@/helper/server/user/get-user-id"
+import { uploadImage } from "@/helper/extra/upload-image"
+import { createSlug } from "@/helper/extra/create-slug"
 
 export async function POST(req) {
   try {
-    // const createStatus = process.env.CREATE_BLOG
-
-    // if (createStatus !== "enable") {
-    //   return NextResponse.json(
-    //     { message: "Blog creation has been temporarily disabled by the administrator. Please try again later.", code: "CREATE_BLOG_DISABLED" },
-    //     { status: 403 }
-    //   )
-    // }
 
     await connectDB()
 
@@ -28,7 +14,6 @@ export async function POST(req) {
     if (!userId) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
     }
-
 
     const data = await req.formData()
     const title = data.get("title")
@@ -42,41 +27,9 @@ export async function POST(req) {
       )
     }
 
-    let bannerUrl = null
+    const bannerUrl = await uploadImage(banner)
 
-    if (banner instanceof File) {
-      if (!banner.type.startsWith("image/")) {
-        return NextResponse.json(
-          { message: "Invalid banner type" },
-          { status: 400 }
-        )
-      }
-
-      const bytes = await banner.arrayBuffer()
-      const buffer = Buffer.from(bytes)
-
-      const upload = await imagekit.upload({
-        file: buffer, 
-        fileName: `blog-banner-${Date.now()}`,
-        folder: "/Portfolio/Blog_Banners",
-      })
-
-      bannerUrl = upload.url
-    }
-
-
-    let baseSlug = title
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-")
-
-    let slug = baseSlug
-    let count = 1
-    while (await Blog.exists({ slug })) {
-      slug = `${baseSlug}-${count}`
-      count++
-    }
+    const slug = await createSlug(title)
 
     const newBlog = await Blog.create({
       title,
