@@ -32,7 +32,7 @@ export const handleCreateBlog = async (
     }
 
     toast.success(data.message)
-    router.push("/home")
+    router.push("/")
     router.refresh()
   } catch (error) {
     console.log(error)

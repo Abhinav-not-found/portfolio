@@ -7,7 +7,7 @@ const NavLinks = () => {
     <nav className="text-sm flex gap-4">
       <Links href="/projects" label="projects" />
       {/* <Links href="/blocks" label="blocks" /> */}
-      {/* <Links href="/blogs" label="blogs" /> */}
+      <Links href="/blogs" label="blogs" />
     </nav>
   )
 }
