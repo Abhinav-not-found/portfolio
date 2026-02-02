@@ -1,5 +1,5 @@
 "use client"
-import { Field, FieldGroup, FieldSet } from "@/components/ui/field"
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import Tiptap from "../general/tiptap"
@@ -8,12 +8,13 @@ import { Spinner } from "../ui/spinner"
 import { useRouter } from "next/navigation"
 import { handleCreateBlog } from "@/helper/client/blog.helper"
 import { toast } from "sonner"
+import { Switch } from "../ui/switch"
 
 const BlogForm = () => {
   const router = useRouter()
   const fileRef = useRef(null)
 
-  const [form, setForm] = useState({ title: "", content: "" })
+  const [form, setForm] = useState({ title: "", content: "", featured: false })
   const [loading, setLoading] = useState(false)
   const [banner, setBanner] = useState(null)
 
@@ -33,6 +34,7 @@ const BlogForm = () => {
         const formData = new FormData()
         formData.append("title", form.title)
         formData.append("content", form.content)
+        formData.append("featured", form.featured)
         if (banner) {
           formData.append("banner", banner)
         }
@@ -52,28 +54,42 @@ const BlogForm = () => {
           <Field>
             <Tiptap content={form.content} onChange={handleContentChange} />
           </Field>
-          <Field>
-            <Input
-              ref={fileRef}
-              id='banner'
-              type='file'
-              accept='image/*'
-              className='hidden'
-              onChange={(e) => setBanner(e.target.files?.[0] || null)}
-            />
-            <Button
-              type='button'
-              variant='outline'
-              onClick={() => fileRef.current?.click()}
-            >
-              Upload Banner
-            </Button>
-            {banner && (
-              <span className='text-sm text-neutral-500 truncate max-w-50'>
-                {banner.name}
-              </span>
-            )}
-          </Field>
+          <div className='flex items-center gap-20'>
+            <Field>
+              <Input
+                ref={fileRef}
+                id='banner'
+                type='file'
+                accept='image/*'
+                className='hidden'
+                onChange={(e) => setBanner(e.target.files?.[0] || null)}
+              />
+              <Button
+                type='button'
+                variant='outline'
+                onClick={() => fileRef.current?.click()}
+              >
+                Upload Banner
+              </Button>
+              {banner && (
+                <span className='text-sm text-neutral-500 truncate max-w-50'>
+                  {banner.name}
+                </span>
+              )}
+            </Field>
+            <Field>
+              <div className='flex items-center space-x-2'>
+                <FieldLabel htmlFor='featured'>Featured</FieldLabel>
+                <Switch
+                  checked={form.featured}
+                  onCheckedChange={(val) =>
+                    setForm((prev) => ({ ...prev, featured: val }))
+                  }
+                />
+              </div>
+            </Field>
+          </div>
+
           <Field orientation='horizontal'>
             <Button disabled={loading}>{loading ? <Spinner /> : "Post"}</Button>
           </Field>

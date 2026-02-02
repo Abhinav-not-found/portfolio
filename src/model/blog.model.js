@@ -32,7 +32,11 @@ const blogSchema = new mongoose.Schema(
     banner: {
       type: String,
       default: ''
-    }
+    },
+    featured: {// shown on homepage or not
+    type: Boolean,
+    default: false
+  },
   },
   { timestamps: true }
 )

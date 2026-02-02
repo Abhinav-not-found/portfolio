@@ -18,6 +18,7 @@ export async function POST(req) {
     const data = await req.formData()
     const title = data.get("title")
     const content = data.get("content")
+    const featured = data.get("featured")
     const banner = data.get("banner")
 
     if (!title || !content) {
@@ -35,6 +36,7 @@ export async function POST(req) {
       title,
       content,
       slug,
+      featured,
       authorId: userId,
       banner: bannerUrl,
     })

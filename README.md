@@ -5,6 +5,5 @@
 
 
 # later
-
 - add sound effects after login and logout
 - add a public lobby - where people can write a message to be viewed by everyone.

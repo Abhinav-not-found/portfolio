@@ -8,10 +8,7 @@ const BlogCard = ({ data }) => {
   const router = useRouter()
 
   return (
-    <div
-      onClick={() => router.push(`/blogs/${data.slug}`)}
-      className='w-82 h-66 border rounded-md p-3 cursor-pointer'
-    >
+    <div className='w-82 h-64 border rounded-md p-3 hover:bg-neutral-50 hover:shadow-md'>
       <div
         className='w-full h-40 bg-neutral-100 dark:bg-neutral-800 rounded-md opacity-90'
         style={{
@@ -20,10 +17,15 @@ const BlogCard = ({ data }) => {
           backgroundPosition: "center",
         }}
       ></div>
-      <h1 className='mt-4 text-lg font-medium first-letter:uppercase'>
+      <h1
+        onClick={() => router.push(`/blogs/${data.slug}`)}
+        className='mt-4 text-xl font-medium first-letter:uppercase hover:underline underline-offset-2 cursor-pointer tracking-tight'
+      >
         {data.title}
       </h1>
-      <p className='text-muted-foreground mt-2 tracking-tight'>{formatDate(data.createdAt)}</p>
+      <p className='text-muted-foreground text-xs mt-2 tracking-tight'>
+        {formatDate(data.createdAt)}
+      </p>
     </div>
   )
 }
