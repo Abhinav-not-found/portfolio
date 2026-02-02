@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/card/project-card"
 import { BigHeading, Heading } from "@/components/general/heading"
+import PrivateRoute from "@/components/routes/private-route"
 import { Button } from "@/components/ui/button"
 import { getAllProjects } from "@/helper/server/project/get-all-projects"
 import { Plus } from "lucide-react"
@@ -9,7 +10,7 @@ const AdminProject = async () => {
   const data = await getAllProjects()
 
   return (
-    <main>
+    <PrivateRoute>
       <div className='flex justify-between items-center'>
         <Heading>
           <BigHeading>Project</BigHeading>Management
@@ -27,7 +28,7 @@ const AdminProject = async () => {
           return <ProjectCard key={index} data={item} />
         })}
       </div>
-    </main>
+    </PrivateRoute>
   )
 }
 

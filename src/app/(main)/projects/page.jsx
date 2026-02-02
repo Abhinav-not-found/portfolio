@@ -6,6 +6,7 @@ import { getAllProjects } from "@/helper/server/project/get-all-projects"
 
 const page = async () => {
   const data = await getAllProjects()
+  
   return (
     <PublicRoute className={"mt-18 h-screen"}>
       <Header>Projects</Header>
