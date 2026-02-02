@@ -3,6 +3,8 @@
 - fix project card for mobile view
 - fix project section for mobile view
 
+- update description in / route page.jsx to your personal thing, not just generic, make it more natural and simple
+
 
 # later
 - add sound effects after login and logout
