@@ -33,7 +33,6 @@ export const metadata = {
     "next.js",
     "node.js",
     "programming",
-    ,
   ],
   openGraph: {
     title: "Blogs - Abhinav Kumar ",

@@ -3,13 +3,14 @@ import { getProjectBySlug } from "@/helper/server/project/get-project-by-slug"
 import { Eye, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 
 const page = async ({ params }) => {
   const name = await params
 
   const data = await getProjectBySlug(name.name)
+  if (!data) notFound()
 
-  console.log(data)
   return (
     <main className='pt-20'>
       <div className='w-full h-80 bg-neutral-100 dark:bg-neutral-900 rounded-md relative border border-neutral-300'>
@@ -46,3 +47,44 @@ const page = async ({ params }) => {
 }
 
 export default page
+
+export async function generateMetadata({ params }) {
+  const param = await params
+  const project = await getProjectBySlug(param.name)
+
+  if (!project) {
+    return {
+      title: "Project not found",
+      description: "The requested project does not exist.",
+    }
+  }
+
+  const plainTextContent = project.content.replace(/<[^>]+>/g, "").slice(0, 160)
+
+  return {
+    title: `${project.title}`,
+    description: plainTextContent,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
+    openGraph: {
+      title: project.title,
+      description: plainTextContent,
+      images: [
+        {
+          url: project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: plainTextContent,
+      images: [project.thumbnail],
+    },
+  }
+}
