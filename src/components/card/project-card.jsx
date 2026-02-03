@@ -14,7 +14,10 @@ const techIcons = {
 const ProjectCard = ({ data }) => {
   const latest = data?.latest || false
   return (
-    <div className='size-78 md:size-82 bg-neutral-100/60 dark:bg-neutral-900 rounded-md p-2  border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'>
+    <div
+      className='size-78 md:size-82 bg-neutral-100/60 dark:bg-black hover:dark:bg-linear-to-b
+    dark:from-black dark:to-neutral-800/70 rounded-md p-2  border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'
+    >
       <div className='bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200'>
         <LinkElement href={`${data?.github}`} right='right-2'>
           <Github className='size-4' />

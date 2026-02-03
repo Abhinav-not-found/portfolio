@@ -1,3 +1,7 @@
+- change blogs to readme instead of html
+- add edit blog feature
+
+
 # optimize
 - images to webp formate
 - fix project card for mobile view
