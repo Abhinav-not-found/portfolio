@@ -61,20 +61,23 @@ export async function generateMetadata({ params }) {
     }
   }
 
+  const siteUrl = "https://www.abhinav-kumar.in/"
   const plainTextContent = blog.content.replace(/<[^>]+>/g, "").slice(0, 160)
-
   return {
     title: `${blog.title}`,
     description: plainTextContent,
     alternates: {
-      canonical: `/blog/${blog.slug}`,
+      canonical: `${siteUrl}/blogs/${blog.slug}`,
     },
     openGraph: {
       title: blog.title,
       description: plainTextContent,
+      url: `${siteUrl}/blogs/${blog.slug}`,
       images: [
         {
-          url: blog.banner,
+          url: blog.banner.startsWith("http")
+            ? blog.banner
+            : `${siteUrl}${blog.banner}`,
           width: 1200,
           height: 630,
           alt: blog.title,
