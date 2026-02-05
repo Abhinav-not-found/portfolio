@@ -2,21 +2,46 @@
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
-import Tiptap from "../general/tiptap"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Spinner } from "../ui/spinner"
 import { useRouter } from "next/navigation"
-import { handleCreateBlog } from "@/helper/client/blog.helper"
+import { handleCreateBlog, handleUpdateBlog } from "@/helper/client/blog.helper"
 import { toast } from "sonner"
 import { Switch } from "../ui/switch"
+import MarkdownEditor from "@/app/test/_components/markdown-editor"
 
-const BlogForm = () => {
+const STORAGE_KEY = "blog_draft"
+
+const BlogForm = ({ mode = "create", initialData }) => {
   const router = useRouter()
   const fileRef = useRef(null)
 
-  const [form, setForm] = useState({ title: "", content: "", featured: false })
+  const [form, setForm] = useState(
+    initialData
+      ? {
+          title: initialData.title ?? "",
+          content: initialData.content ?? "",
+          featured: initialData.featured ?? false,
+        }
+      : { title: "", content: "", featured: false },
+  )
   const [loading, setLoading] = useState(false)
   const [banner, setBanner] = useState(null)
+
+  useEffect(() => {
+    if (mode !== "edit" || !initialData) return
+
+    setForm({
+      title: initialData.title ?? "",
+      content: initialData.content ?? "",
+      featured: initialData.featured ?? false,
+    })
+  }, [mode, initialData])
+
+  useEffect(() => {
+    if (mode === "edit") return
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(form))
+  }, [form, mode])
 
   const handleChange = (e) => {
     const { id, value } = e.target
@@ -38,7 +63,12 @@ const BlogForm = () => {
         if (banner) {
           formData.append("banner", banner)
         }
-        handleCreateBlog(formData, router, { setLoading, toast })
+        if (mode === "edit") {
+          formData.append("id", initialData.id)
+          handleUpdateBlog(formData, router, { setLoading, toast })
+        } else {
+          handleCreateBlog(formData, router, { setLoading, toast })
+        }
       }}
     >
       <FieldSet>
@@ -52,7 +82,10 @@ const BlogForm = () => {
             />
           </Field>
           <Field>
-            <Tiptap content={form.content} onChange={handleContentChange} />
+            <MarkdownEditor
+              value={form.content}
+              onChange={handleContentChange}
+            />
           </Field>
           <div className='flex items-center gap-20'>
             <Field>
@@ -89,7 +122,6 @@ const BlogForm = () => {
               </div>
             </Field>
           </div>
-
           <Field orientation='horizontal'>
             <Button disabled={loading}>{loading ? <Spinner /> : "Post"}</Button>
           </Field>

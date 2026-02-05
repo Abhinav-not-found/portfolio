@@ -1,3 +1,7 @@
+const STORAGE_KEY = "blog_draft"
+
+
+
 export const handleCreateBlog = async (
   formdata,
   router,
@@ -34,8 +38,31 @@ export const handleCreateBlog = async (
     toast.success(data.message)
     router.push("/admin/blogs")
     router.refresh()
+    localStorage.removeItem(STORAGE_KEY)
   } catch (error) {
     console.log(error)
+  } finally {
+    setLoading(false)
+  }
+}
+
+
+export const handleUpdateBlog = async (formData, router, { setLoading, toast }) => {
+  try {
+    setLoading(true)
+    const res = await fetch("/api/blog/update", {
+      method: "PUT",
+      body: formData,
+    })
+    
+    if (!res.ok) throw new Error()
+    const data = await res.json()
+
+    toast.success(data.message)
+    router.push("/admin/blogs")
+    router.refresh()
+  } catch {
+    toast.error("Update failed")
   } finally {
     setLoading(false)
   }
