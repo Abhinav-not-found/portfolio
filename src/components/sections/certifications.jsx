@@ -21,7 +21,7 @@ const certifications = [
     title: "Basics of NLP & RAG",
     from: "@coding_ninja",
     date: "January 2025",
-    href: "https://drive.google.com/file/d/1QBveCtLsY1R1-w_iSVGZSbgl_yJFFoDh/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/1qcYuw13L8G48eVw1r2zmpDn8drrmDIEM/view?usp=drive_link",
   },
   {
     icon: (
