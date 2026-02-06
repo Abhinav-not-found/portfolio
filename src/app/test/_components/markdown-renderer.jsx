@@ -16,6 +16,7 @@ export default function MarkdownRenderer({ content }) {
       className={`
         prose prose-neutral dark:prose-invert max-w-none
         prose-p:text-lg prose-h1:font-medium prose-h2:font-medium prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-xl prose-p:text-neutral-500
+        dark:prose-p:text-neutral-400
         prose-li:ml-4
         prose-img:rounded-lg prose-img:mx-auto prose-img:max-w-full
         prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
