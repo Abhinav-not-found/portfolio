@@ -2,6 +2,7 @@ import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,7 +33,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange>
             <Toaster richColors />
-          {children}
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

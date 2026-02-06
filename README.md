@@ -1,4 +1,6 @@
 
+- complete coding ninja assignment and put certificate of excellence in google drive and link it to certificate section, also change its view access.
+
 # optimize
 - images to webp formate
 - fix project card for mobile view
