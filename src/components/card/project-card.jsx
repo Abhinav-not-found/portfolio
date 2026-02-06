@@ -2,13 +2,18 @@ import Link from "next/link"
 import { Badge } from "../ui/badge"
 import Image from "next/image"
 import { Eye, Github } from "lucide-react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const techIcons = {
-  "next.js": "/svgs/nextjs.svg",
-  react: "/svgs/react.svg",
-  node: "/svgs/node.svg",
-  tailwind: "/svgs/tailwind.svg",
-  mongodb: "/svgs/mongodb.svg",
+  "next.js": { img: "/svgs/nextjs.svg", label: "Next.js" },
+  react: { img: "/svgs/react.svg", label: "React.js" },
+  node: { img: "/svgs/node.svg", label: "Node.js" },
+  tailwind: { img: "/svgs/tailwind.svg", label: "Tailwind css" },
+  mongodb: { img: "/svgs/mongodb.svg", label: "Mongodb" },
 }
 
 const ProjectCard = ({ data }) => {
@@ -61,7 +66,14 @@ const ProjectCard = ({ data }) => {
           {data?.techStack.map((item, index) => {
             const icon = techIcons[item.toLowerCase()]
             return icon ? (
-              <Image key={index} src={icon} alt={item} width={25} height={25} />
+              <Tooltip key={index}>
+                <TooltipTrigger>
+                  <Image src={icon.img} alt={item} width={25} height={25} />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{icon.label}</p>
+                </TooltipContent>
+              </Tooltip>
             ) : (
               <p key={index}>{item}</p>
             )
