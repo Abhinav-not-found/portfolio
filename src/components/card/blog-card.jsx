@@ -19,7 +19,7 @@ const BlogCard = ({ data }) => {
       ></div>
       <h1
         onClick={() => router.push(`/blogs/${data.slug}`)}
-        className='mt-4 text-xl font-semibold first-letter:uppercase hover:underline underline-offset-2 cursor-pointer tracking-tight group-hover:translate-x-2 transition-all'
+        className='mt-4 text-xl font-semibold first-letter:uppercase hover:underline underline-offset-2 cursor-pointer tracking-tight group-hover:translate-x-1 transition-all'
       >
         {data.title}
       </h1>
