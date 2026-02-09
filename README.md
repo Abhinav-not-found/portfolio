@@ -1,3 +1,4 @@
+- delete blog: add a confirmation before deleting, 'Do you really want to delete this?'
 
 - complete coding ninja assignment and put certificate of excellence in google drive and link it to certificate section, also change its view access.
 

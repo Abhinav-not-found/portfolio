@@ -6,6 +6,21 @@ import Hero from "@/components/sections/hero";
 import Project from "@/components/sections/project";
 import TechStack from "@/components/sections/techStack";
 
+export default async function Home() {
+  return (
+    <Container>
+      <PublicRoute>
+        <Hero />
+        <Project />
+        <Blog/>
+        <TechStack />
+        <Certifications/>
+      </PublicRoute>
+    </Container>
+  );
+}
+
+
 export const metadata = {
   title: "Abhinav Kumar - Fullstack developer",
   description:
@@ -32,19 +47,4 @@ export const metadata = {
     ],
     type: "website",
   },
-}
-
-export default async function Home() {
-
-  return (
-    <Container>
-      <PublicRoute>
-        <Hero />
-        <Project />
-        <Blog/>
-        <TechStack />
-        <Certifications/>
-      </PublicRoute>
-    </Container>
-  );
 }

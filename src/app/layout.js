@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Background from "@/components/sections/background";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,7 +35,8 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange>
             <Toaster richColors />
             <TooltipProvider>
-              {children}
+              {/* <Background/> */}
+                {children}
             </TooltipProvider>
         </ThemeProvider>
       </body>
