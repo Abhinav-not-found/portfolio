@@ -17,7 +17,7 @@ export function ModeToggle() {
   }
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark"
+    const nextTheme = theme === "light" ? "dark" : "light"
     setTheme(nextTheme)
 
     playSound(nextTheme === "light" ? "on" : "off")
