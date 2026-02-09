@@ -11,7 +11,7 @@ const AdminProject = async () => {
   const data = await getAllProjects()
 
   return (
-    <PrivateRoute>
+    <main>
       <div className='flex justify-between items-center'>
         <Heading>
           <BigHeading>Project</BigHeading>Management
@@ -29,7 +29,7 @@ const AdminProject = async () => {
           return <ProjectCard key={index} data={item} />
         })}
       </div>
-    </PrivateRoute>
+    </main>
   )
 }
 
