@@ -1,4 +1,3 @@
-'use client'
 import ProjectCard from "@/components/card/project-card"
 import { BigHeading, Heading } from "@/components/general/heading"
 import PrivateRoute from "@/components/routes/private-route"
@@ -11,7 +10,7 @@ const AdminProject = async () => {
   const data = await getAllProjects()
 
   return (
-    <main>
+    <PrivateRoute>
       <div className='flex justify-between items-center'>
         <Heading>
           <BigHeading>Project</BigHeading>Management
@@ -29,7 +28,7 @@ const AdminProject = async () => {
           return <ProjectCard key={index} data={item} />
         })}
       </div>
-    </main>
+    </PrivateRoute>
   )
 }
 
