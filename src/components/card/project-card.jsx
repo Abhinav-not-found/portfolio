@@ -21,19 +21,19 @@ const ProjectCard = ({ data }) => {
   return (
     <div
       className='size-78 md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
-    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md group relative overflow-hidden'
+    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md dark:shadow-neutral-700/80 group relative overflow-hidden'
     >
-      <Link target="_blank" href={`${data?.live}`}>
+      <Link target='_blank' href={`${data?.live}`}>
         <Eye
           style={{ transformOrigin: "15% 15%" }}
-          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-125 duration-400 hover:text-yellow-400 text-neutral-400'
+          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-125 duration-400 hover:text-yellow-400 text-neutral-400 dark:text-neutral-600 dark:hover:text-yellow-600'
         />
       </Link>
       <Link
         href={`${data?.live}`}
-        target="_blank"
+        target='_blank'
         style={{ transformOrigin: "15% 15%" }}
-        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-neutral-400'
+        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-neutral-400 dark:text-neutral-600 dark:hover:text-green-600'
       >
         <Github className='rotate-180' />
       </Link>
