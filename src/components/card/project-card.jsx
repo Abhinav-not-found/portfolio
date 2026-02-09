@@ -21,18 +21,19 @@ const ProjectCard = ({ data }) => {
   return (
     <div
       className='size-78 md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
-    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md group relative border overflow-hidden'
+    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md group relative overflow-hidden'
     >
-      <Link href={`${data?.live}`}>
+      <Link target="_blank" href={`${data?.live}`}>
         <Eye
           style={{ transformOrigin: "15% 15%" }}
-          className='size-12 bg-white p-2 rounded-full absolute -bottom-12 -right-9 transition-all group-hover:rotate-180 z-10  hover:scale-120 duration-400 hover:text-yellow-400'
+          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-120 duration-400 hover:text-yellow-400 text-muted-foreground'
         />
       </Link>
       <Link
         href={`${data?.live}`}
+        target="_blank"
         style={{ transformOrigin: "15% 15%" }}
-        className='size-10 bg-white p-2 rounded-full absolute -bottom-1 -right-8 transition-all group-hover:-rotate-180 transform-origin flex items-center  justify-center hover:scale-120 duration-400 hover:text-green-500'
+        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-muted-foreground'
       >
         <Github className='rotate-180' />
       </Link>
