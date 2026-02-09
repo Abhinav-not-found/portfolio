@@ -20,16 +20,30 @@ const ProjectCard = ({ data }) => {
   const latest = data?.latest || false
   return (
     <div
-      className='size-78 md:size-82 bg-neutral-100/60 dark:bg-black hover:dark:bg-linear-to-b
-    dark:from-black dark:to-neutral-800/70 rounded-md p-2  border-neutral-200/50 dark:border-neutral-700 hover:shadow-md group'
+      className='size-78 md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
+    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md group relative border overflow-hidden'
     >
+      <Link href={`${data?.live}`}>
+        <Eye
+          style={{ transformOrigin: "15% 15%" }}
+          className='size-12 bg-white p-2 rounded-full absolute -bottom-12 -right-9 transition-all group-hover:rotate-180 z-10  hover:scale-120 duration-400 hover:text-yellow-400'
+        />
+      </Link>
+      <Link
+        href={`${data?.live}`}
+        style={{ transformOrigin: "15% 15%" }}
+        className='size-10 bg-white p-2 rounded-full absolute -bottom-1 -right-8 transition-all group-hover:-rotate-180 transform-origin flex items-center  justify-center hover:scale-120 duration-400 hover:text-green-500'
+      >
+        <Github className='rotate-180' />
+      </Link>
+
       <div className='bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200'>
-        <LinkElement href={`${data?.github}`} right='right-2'>
+        {/* <LinkElement href={`${data?.github}`} right='right-2'>
           <Github className='size-4' />
         </LinkElement>
         <LinkElement href={`${data?.live}`} right='right-12'>
           <Eye className='size-4' />
-        </LinkElement>
+        </LinkElement> */}
         {data?.thumbnail && (
           <Image
             src={data?.thumbnail}
@@ -68,7 +82,13 @@ const ProjectCard = ({ data }) => {
             return icon ? (
               <Tooltip key={index}>
                 <TooltipTrigger>
-                  <Image src={icon.img} alt={item} width={25} height={25} className="hover:scale-120 transition-all" />
+                  <Image
+                    src={icon.img}
+                    alt={item}
+                    width={25}
+                    height={25}
+                    className='hover:scale-120 transition-all'
+                  />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{icon.label}</p>
