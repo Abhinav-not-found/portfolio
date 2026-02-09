@@ -26,14 +26,14 @@ const ProjectCard = ({ data }) => {
       <Link target="_blank" href={`${data?.live}`}>
         <Eye
           style={{ transformOrigin: "15% 15%" }}
-          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-120 duration-400 hover:text-yellow-400 text-muted-foreground'
+          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-125 duration-400 hover:text-yellow-400 text-neutral-400'
         />
       </Link>
       <Link
         href={`${data?.live}`}
         target="_blank"
         style={{ transformOrigin: "15% 15%" }}
-        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-muted-foreground'
+        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-neutral-400'
       >
         <Github className='rotate-180' />
       </Link>

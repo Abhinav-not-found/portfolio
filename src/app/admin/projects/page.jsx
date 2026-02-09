@@ -1,3 +1,4 @@
+'use client'
 import ProjectCard from "@/components/card/project-card"
 import { BigHeading, Heading } from "@/components/general/heading"
 import PrivateRoute from "@/components/routes/private-route"
