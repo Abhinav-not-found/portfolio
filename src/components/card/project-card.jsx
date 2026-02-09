@@ -68,7 +68,7 @@ const ProjectCard = ({ data }) => {
             return icon ? (
               <Tooltip key={index}>
                 <TooltipTrigger>
-                  <Image src={icon.img} alt={item} width={25} height={25} />
+                  <Image src={icon.img} alt={item} width={25} height={25} className="hover:scale-120 transition-all" />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{icon.label}</p>

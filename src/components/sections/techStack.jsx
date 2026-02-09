@@ -28,7 +28,7 @@ const TechStack = () => {
 
 const Item = ({ name, src }) => {
   return (
-    <div className='flex flex-col items-center gap-2'>
+    <div className='flex flex-col items-center gap-2 hover:scale-120 transition-all'>
       <Tooltip>
         <TooltipTrigger>
           <Image src={src} alt={name} width={40} height={40} priority={true} />
