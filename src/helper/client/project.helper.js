@@ -41,3 +41,57 @@ export const handleCreateProject = async (e, form, thumbnail, toast, router, { s
     setLoading(false)
   }
 }
+
+
+export const handleUpdateProject = async (
+  id,
+  form,
+  thumbnail,
+  toast,
+  router,
+  { setLoading }
+) => {
+  try {
+    setLoading(true)
+
+    const formData = new FormData()
+
+    formData.append("title", form.title)
+    formData.append("desc", form.desc)
+    formData.append("content", form.content)
+    formData.append("github", form.github)
+    formData.append("live", form.live)
+    formData.append("featured", String(form.featured))
+    formData.append("latest", String(form.latest))
+
+    // techstack array
+    form.techstack.forEach((tech) => {
+      formData.append("techstack", tech)
+    })
+
+    // optional thumbnail update
+    if (thumbnail) {
+      formData.append("thumbnail", thumbnail)
+    }
+
+    const res = await fetch(`/api/project/${id}`, {
+      method: "PUT",
+      body: formData,
+    })
+
+    const data = await res.json()
+
+    if (!res.ok) {
+      throw new Error(data.message || "Something went wrong")
+    }
+
+    toast.success("Project updated successfully")
+
+    router.push(`/projects/${data.slug}`)
+    router.refresh()
+  } catch (error) {
+    toast.error(error.message || "Failed to update project")
+  } finally {
+    setLoading(false)
+  }
+}

@@ -17,6 +17,7 @@ export async function POST(req) {
     const data = await req.formData()
     const title = data.get('title')
     const desc = data.get('desc')
+    const content = data.get('content')
     const github = data.get('github')
     const live = data.get('live')
     const techstackRaw = data.get("techstack")
@@ -122,6 +123,7 @@ export async function POST(req) {
       techStack:techstack,
       featured,
       latest,
+      content,
       thumbnail: thumbnailUrl
     })
 

@@ -8,9 +8,11 @@ import { Switch } from "../ui/switch"
 import { useState } from "react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
-import { handleCreateProject } from "@/helper/client/project.helper"
-
-// after that content : tip tap editor
+import {
+  handleCreateProject,
+  handleUpdateProject,
+} from "@/helper/client/project.helper"
+import MarkdownEditor from "@/app/test/_components/markdown-editor"
 
 const TECH_OPTIONS = [
   "React",
@@ -22,15 +24,16 @@ const TECH_OPTIONS = [
   "TypeScript",
 ]
 
-const CreateProjectForm = () => {
+const CreateProjectForm = ({ mode, initialData }) => {
   const [form, setForm] = useState({
-    title: "",
-    desc: "",
-    techstack: [],
-    github: "",
-    live: "",
-    featured: false,
-    latest: false,
+    title: initialData?.title || "",
+    desc: initialData?.desc || "",
+    content: initialData?.content || "",
+    techstack: initialData?.techstack || [],
+    github: initialData?.github || "",
+    live: initialData?.live || "",
+    featured: initialData?.featured || false,
+    latest: initialData?.latest || false,
   })
 
   const [thumbnail, setThumbnail] = useState(null)
@@ -42,6 +45,10 @@ const CreateProjectForm = () => {
     setForm((prev) => ({ ...prev, [id]: value }))
   }
 
+  const handleContentChange = (html) => {
+    setForm((prev) => ({ ...prev, content: html }))
+  }
+
   const toggleTech = (tech) => {
     setForm((prev) => ({
       ...prev,
@@ -51,12 +58,29 @@ const CreateProjectForm = () => {
     }))
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (mode === "create") {
+      await handleCreateProject(e, form, thumbnail, toast, router, {
+        setLoading,
+      })
+    }
+
+    if (mode === "edit" && initialData?.id) {
+      await handleUpdateProject(
+        initialData.id,
+        form,
+        thumbnail,
+        toast,
+        router,
+        { setLoading },
+      )
+    }
+  }
+
   return (
-    <form
-      onSubmit={(e) =>
-        handleCreateProject(e, form, thumbnail, toast, router, { setLoading })
-      }
-    >
+    <form onSubmit={handleSubmit}>
       <FieldSet>
         <Field>
           <FieldLabel htmlFor='title'>Title</FieldLabel>
@@ -154,9 +178,10 @@ const CreateProjectForm = () => {
           </Field>
         </div>
 
-        {/* <Field>
+        <Field>
           <FieldLabel htmlFor='content'>Content</FieldLabel>
-        </Field> */}
+          <MarkdownEditor value={form.content} onChange={handleContentChange} />
+        </Field>
 
         <Field>
           <Button
@@ -165,11 +190,11 @@ const CreateProjectForm = () => {
             disabled={loading}
           >
             {loading ? (
-              <>
-                <Spinner />
-              </>
-            ) : (
+              <Spinner />
+            ) : mode === "create" ? (
               "Create Project"
+            ) : (
+              "Update Project"
             )}
           </Button>
         </Field>

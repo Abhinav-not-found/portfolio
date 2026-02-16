@@ -1,12 +1,17 @@
+import MarkdownRenderer from "@/app/test/_components/markdown-renderer"
 import { Button } from "@/components/ui/button"
 import { getProjectBySlug } from "@/helper/server/project/get-project-by-slug"
 import { Eye, Github } from "lucide-react"
+import { cookies } from "next/headers"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
 const page = async ({ params }) => {
   const name = await params
+
+  const cookieStore = await cookies()
+  const token = cookieStore.get("token")
 
   const data = await getProjectBySlug(name.name)
   if (!data) notFound()
@@ -28,19 +33,34 @@ const page = async ({ params }) => {
         <h1 className='text-5xl font-semibold tracking-tight'>{data?.title}</h1>
         <p className='text-lg mt-4 text-muted-foreground'>{data?.desc}</p>
       </div>
-      <div className='mt-5 flex gap-2'>
-        <Link href={`${data?.live}`} target='_blank'>
-          <Button>
-            <Eye />
-            Live
-          </Button>
-        </Link>
-        <Link href={`${data?.github}`} target='_blank'>
-          <Button variant='outline'>
-            <Github />
-            Github
-          </Button>
-        </Link>
+      <div className='mt-5 flex justify-between'>
+        <div className='flex gap-2'>
+          <Link href={`${data?.live}`} target='_blank'>
+            <Button>
+              <Eye />
+              Live
+            </Button>
+          </Link>
+          <Link href={`${data?.github}`} target='_blank'>
+            <Button variant='outline'>
+              <Github />
+              Github
+            </Button>
+          </Link>
+        </div>
+        {token && (
+          <div className='flex gap-2'>
+            <Button>Delete</Button>
+            <Link href={`/projects/${data?.slug}/edit`}>
+              <Button>Edit</Button>
+            </Link>
+          </div>
+        )}
+      </div>
+      <div className='mt-5 md:mt-10'>
+        <MarkdownRenderer
+          content={data.content || "_Nothing to preview yet_"}
+        />
       </div>
     </main>
   )

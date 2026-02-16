@@ -23,7 +23,7 @@ const AdminProject = async () => {
         </Link>
       </div>
 
-      <div className='mt-5'>
+      <div className='mt-5 grid grid-cols-2 gap-y-5'>
         {data.map((item, index) => {
           return <ProjectCard key={index} data={item} />
         })}
