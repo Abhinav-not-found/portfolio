@@ -1,0 +1,7 @@
+{
+	"linter": {
+		"rules": {
+			"a11y/useKeyWithClickEvents": "off"
+		}
+	}
+}

@@ -1,4 +1,3 @@
-import React from "react"
 
 const Header = ({ variant = "v1", title, description, children }) => {
   if (variant === "v2") {

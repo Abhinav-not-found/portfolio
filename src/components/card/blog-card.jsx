@@ -1,7 +1,7 @@
 "use client"
-import { formatDate } from "@/lib/formate-date"
 import { useRouter } from "next/navigation"
 import React from "react"
+import { formatDate } from "@/lib/formate-date"
 
 const BlogCard = ({ data }) => {
   // console.log(data)
