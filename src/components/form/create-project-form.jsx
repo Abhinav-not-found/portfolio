@@ -24,7 +24,7 @@ const TECH_OPTIONS = [
   "TypeScript",
 ]
 
-const CreateProjectForm = ({ mode, initialData }) => {
+const CreateProjectForm = ({ mode = 'create', initialData }) => {
   const [form, setForm] = useState({
     title: initialData?.title || "",
     desc: initialData?.desc || "",

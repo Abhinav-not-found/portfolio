@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server"
 import { connectDB } from "@/lib/db"
 import Project from "@/model/project.model"
-import { writeFile } from "fs/promises"
-import path from "path"
+import { uploadImage } from "@/helper/extra/upload-image"
 
 export async function PUT(
   req,
@@ -39,16 +38,8 @@ export async function PUT(
 
     // If new thumbnail uploaded
     if (file && file.size > 0) {
-      const bytes = await file.arrayBuffer()
-      const buffer = Buffer.from(bytes)
-
-      const uploadDir = path.join(process.cwd(), "public/uploads")
-      const fileName = `${Date.now()}-${file.name}`
-      const filePath = path.join(uploadDir, fileName)
-
-      await writeFile(filePath, buffer)
-
-      thumbnailPath = `/uploads/${fileName}`
+      const uploadedUrl = await uploadImage(file)
+      thumbnailPath = uploadedUrl
     }
 
     project.title = title
