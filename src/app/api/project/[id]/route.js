@@ -49,10 +49,13 @@ export async function PUT(
     project.live = live
     project.featured = featured
     project.latest = latest
-    project.techstack = techstack
+    project.techStack = techstack
     project.thumbnail = thumbnailPath
 
+    console.log('testing>',project.techStack)
+
     await project.save()
+
 
     return NextResponse.json({
       message: "Project updated successfully",
