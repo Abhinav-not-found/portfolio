@@ -25,6 +25,7 @@ const AdminProject = async () => {
 
       <div className='mt-5 grid grid-cols-2 gap-y-5'>
         {data.map((item, index) => {
+          console.log(item)
           return <ProjectCard key={index} data={item} />
         })}
       </div>

@@ -4,5 +4,5 @@ import { connectDB } from "@/lib/db"
 export const getAllProjects = async () => {
   await connectDB()
 
-  return Project.find().lean()
+  return Project.find().lean().sort('-createdAt') 
 }
