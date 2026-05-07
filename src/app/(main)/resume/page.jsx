@@ -2,18 +2,6 @@ import Header from "@/components/general/header"
 import Link from "next/link"
 import React from "react"
 
-export const metadata = {
-  title: "Resume | Full-Stack Developer",
-  description:
-    "View and download the resume of Abhinav Kumar, full-stack web developer with experience in modern JavaScript frameworks.",
-  openGraph: {
-    title: "Resume | Full-Stack Developer",
-    description: "Download the full-stack developer resume of Abhinav Kumar.",
-    url: "https://yourdomain.com/resume",
-    siteName: "Abhinav Kumar",
-    type: "website",
-  },
-}
 
 const Resume = () => {
   return (
@@ -40,7 +28,7 @@ const Resume = () => {
       {/* Desktop iframe */}
       <div className='mt-6 '>
         <iframe
-          src='/pdf/resume.pdf'
+          src='https://ik.imagekit.io/nya4chyes/Portfolio/Resume.pdf'
           title='Resume PDF'
           loading='lazy'
           className='h-[80vh] w-full rounded-md border'
@@ -51,3 +39,17 @@ const Resume = () => {
 }
 
 export default Resume
+
+
+export const metadata = {
+  title: "Resume | Full-Stack Developer",
+  description:
+    "View and download the resume of Abhinav Kumar, full-stack web developer with experience in modern JavaScript frameworks.",
+  openGraph: {
+    title: "Resume | Full-Stack Developer",
+    description: "Download the full-stack developer resume of Abhinav Kumar.",
+    url: "https://yourdomain.com/resume",
+    siteName: "Abhinav Kumar",
+    type: "website",
+  },
+}
