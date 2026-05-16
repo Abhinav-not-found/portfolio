@@ -11,9 +11,10 @@ import {
 const techIcons = {
   "next.js": { img: "/svgs/nextjs.svg", label: "Next.js" },
   react: { img: "/svgs/react.svg", label: "React.js" },
-  node: { img: "/svgs/node.svg", label: "Node.js" },
+  "node.js": { img: "/svgs/node.svg", label: "Node.js" },
   tailwind: { img: "/svgs/tailwind.svg", label: "Tailwind css" },
   mongodb: { img: "/svgs/mongodb.svg", label: "Mongodb" },
+  express: { img: "/svgs/express.svg", label: "Mongodb" },
 }
 
 const ProjectCard = ({ data }) => {
@@ -79,6 +80,7 @@ const ProjectCard = ({ data }) => {
         </p>
         <div className='mt-4 flex gap-2'>
           {data?.techStack.map((item, index) => {
+            console.log(data.techStack)
             const icon = techIcons[item.toLowerCase()]
             return icon ? (
               <Tooltip key={index}>

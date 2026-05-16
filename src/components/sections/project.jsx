@@ -5,6 +5,7 @@ import { BigHeading, Heading, SmallHeading } from "../general/heading"
 const Project = async () => {
   const data = await getAllProjects()
   const featuredProjects = data?.filter((project) => project.featured === true)
+  // console.log(featuredProjects)
   return (
     <section className='mt-20 px-1'>
       <Heading>
