@@ -80,7 +80,6 @@ const ProjectCard = ({ data }) => {
         </p>
         <div className='mt-4 flex gap-2'>
           {data?.techStack.map((item, index) => {
-            console.log(data.techStack)
             const icon = techIcons[item.toLowerCase()]
             return icon ? (
               <Tooltip key={index}>
