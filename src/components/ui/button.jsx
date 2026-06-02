@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
-import { cva } from "class-variance-authority";
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
@@ -33,7 +33,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 )
 
 function Button({
@@ -47,12 +47,13 @@ function Button({
 
   return (
     <Comp
-      data-slot="button"
+      data-slot='button'
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props} />
-  );
+      {...props}
+    />
+  )
 }
 
 export { Button, buttonVariants }
