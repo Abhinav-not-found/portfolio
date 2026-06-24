@@ -8,7 +8,7 @@ const BlogCard = ({ data }) => {
   const router = useRouter()
 
   return (
-    <div className='w-82 h-70 rounded-md p-3 hover:bg-linear-to-b from-white dark:from-black to-neutral-100 dark:to-neutral-800/60 hover:shadow-md dark:shadow-neutral-700/80 group'>
+    <div className='w-76 md:w-82 h-70 rounded-md p-3 hover:bg-linear-to-b from-white dark:from-black to-neutral-100 dark:to-neutral-800/60 hover:shadow-md dark:shadow-neutral-700/80 group'>
       <div
         className='w-full h-40 bg-neutral-100 dark:bg-neutral-800 rounded-md opacity-90'
         style={{
@@ -23,7 +23,7 @@ const BlogCard = ({ data }) => {
       >
         {data.title}
       </h1>
-      <p className='text-muted-foreground text-xs mt-2 tracking-tight'>
+      <p className='text-muted-foreground text-sm md:text-xs mt-2 tracking-tight'>
         {formatDate(data.createdAt)}
       </p>
     </div>

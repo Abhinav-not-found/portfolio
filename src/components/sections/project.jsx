@@ -5,14 +5,16 @@ import { BigHeading, Heading, SmallHeading } from "../general/heading"
 const Project = async () => {
   const data = await getAllProjects()
   const featuredProjects = data?.filter((project) => project.featured === true)
-  // console.log(featuredProjects)
   return (
-    <section className='mt-20 px-1'>
+    <section className='mt-20 px-4 md:px-0'>
       <Heading>
         <SmallHeading>Latest</SmallHeading>
         <BigHeading>Projects</BigHeading>
       </Heading>
-      <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-6 '>
+      <div
+        className='w-full h-full grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 md
+      :gap-y-2 mt-6 '
+      >
         {featuredProjects.map((item, index) => {
           return <ProjectCard key={index} data={item} />
         })}

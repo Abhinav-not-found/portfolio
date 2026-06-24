@@ -79,24 +79,24 @@ const Element = ({ icon, title, from, date, href }) => {
     <Link
       href={href}
       target='_blank'
-      className='dark:bg-neutral-900 ring-2 ring-neutral-200 dark:ring-neutral-700/70 w-full h-16 rounded-lg p-2 flex justify-between group hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 cursor-pointer mb-4'
+      className='dark:bg-neutral-900 ring-2 ring-neutral-200 dark:ring-neutral-700/70 w-full h-18 md:h-16 rounded-lg p-2 flex justify-between group hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 cursor-pointer mb-4'
     >
       <div className='flex gap-4'>
         <div className='w-11 h-full bg-neutral-100 dark:bg-neutral-800 ring-1 ring-neutral-300 dark:ring-neutral-700 rounded-md flex justify-center items-center'>
           {icon}
         </div>
         <div className='leading-5'>
-          <h3 className='group-hover:underline underline-offset-3 text-lg tracking-tight'>
+          <h3 className='group-hover:underline underline-offset-3 text-[16px] md:text-lg tracking-tight'>
             {title}
           </h3>
-          <div className='flex gap-2 text-sm'>
+          <div className='flex gap-2 text-xs md:text-sm'>
             <p className='text-muted-foreground'>{from}</p>
             <p className='text-muted-foreground'>{date}</p>
           </div>
         </div>
       </div>
       <div className='flex justify-center items-center'>
-        <ArrowRight className='size-5 mr-4 -rotate-45 text-muted-foreground group-hover:rotate-0 transition-all' />
+        <ArrowRight className='size-5 mr-2 md:mr-4 -rotate-45 text-muted-foreground group-hover:rotate-0 transition-all' />
       </div>
     </Link>
   )

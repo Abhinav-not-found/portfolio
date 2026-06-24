@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 
 const NavLinks = () => {
   return (
-    <nav className='text-sm flex gap-4'>
+    <nav className='flex flex-col md:flex-row gap-4 mt-8 md:mt-0'>
       <Links href='/projects' label='projects' />
       {/* <Links href="/blocks" label="blocks" /> */}
       <Links href='/blogs' label='blogs' />
@@ -22,7 +22,7 @@ export const Links = ({ href, label }) => {
   return (
     <Link
       href={href}
-      className={`cursor-pointer underline-offset-2 transition-colors first-letter:uppercase ${
+      className={`cursor-pointer text-2xl md:text-sm underline-offset-2 transition-colors first-letter:uppercase ${
         isActive
           ? "text-black dark:text-white underline"
           : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:underline"

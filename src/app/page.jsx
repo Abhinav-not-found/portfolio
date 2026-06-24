@@ -1,10 +1,10 @@
-import Container from "@/components/general/container";
-import PublicRoute from "@/components/routes/public-route";
-import Blog from "@/components/sections/blog";
-import Certifications from "@/components/sections/certifications";
-import Hero from "@/components/sections/hero";
-import Project from "@/components/sections/project";
-import TechStack from "@/components/sections/techStack";
+import Container from "@/components/general/container"
+import PublicRoute from "@/components/routes/public-route"
+import Blog from "@/components/sections/blog"
+import Certifications from "@/components/sections/certifications"
+import Hero from "@/components/sections/hero"
+import Project from "@/components/sections/project"
+import TechStack from "@/components/sections/techStack"
 
 export default async function Home() {
   return (
@@ -12,14 +12,13 @@ export default async function Home() {
       <PublicRoute>
         <Hero />
         <Project />
-        <Blog/>
+        <Blog />
         <TechStack />
-        <Certifications/>
+        <Certifications />
       </PublicRoute>
     </Container>
-  );
+  )
 }
-
 
 export const metadata = {
   title: "Abhinav Kumar - Fullstack developer",

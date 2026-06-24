@@ -52,7 +52,7 @@ const Hero = () => {
           , driven by solving problems that improves user experience .{" "}
         </p>
       </div>
-      <div className='flex justify-between items-center'>
+      <div className='flex flex-col gap-4 md:gap-0 md:flex-row justify-between items-center'>
         <SocialLinks />
         <div className='flex gap-2 md:gap-4 select-none'>
           <Link href={"/resume"}>

@@ -10,12 +10,12 @@ const Blog = async () => {
   if (featuredBlogs.length === 0) return null
 
   return (
-    <section className='mt-20 px-1'>
+    <section className='mt-20 px-4 md:px-0'>
       <Heading>
         <SmallHeading>Latest</SmallHeading>
         <BigHeading>Blogs</BigHeading>
       </Heading>
-      <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-6 '>
+      <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-2 mt-6'>
         {featuredBlogs.map((item, index) => {
           return <BlogCard key={index} data={item} />
         })}

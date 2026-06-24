@@ -21,7 +21,7 @@ const ProjectCard = ({ data }) => {
   const latest = data?.latest || false
   return (
     <div
-      className='size-78 md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
+      className='size-76 h-fit md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
     rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md dark:shadow-neutral-700/80 group relative overflow-hidden'
     >
       <Link target='_blank' href={`${data?.live}`}>
@@ -74,7 +74,7 @@ const ProjectCard = ({ data }) => {
         >
           {data?.title || "Title"}
         </Link>
-        <p className='text-sm text-muted-foreground mt-2 leading-6'>
+        <p className='text- text-muted-foreground mt-2 leading-6'>
           {data?.desc ||
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quis eum inventore voluptas harum perspiciatis ipsum"}
         </p>
