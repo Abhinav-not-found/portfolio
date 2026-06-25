@@ -12,7 +12,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className='container mx-auto py-20'>
+    <div className='container mx-auto'>
       <ComponentShowcase title={item.title} code={item.code}>
         {item.component}
       </ComponentShowcase>

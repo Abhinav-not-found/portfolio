@@ -1,7 +1,8 @@
 
-import { loginFormCode, registerFormCode } from "./code"
+import { buttonCode, loginFormCode, registerFormCode } from "./code"
 import RegisterForm from "./_components/RegisterForm"
 import LoginForm from "./_components/LoginForm"
+import ButtonGroup from "./_components/Button"
 
 export const components = {
   login: {
@@ -14,6 +15,11 @@ export const components = {
     title: "Register Form",
     component:<RegisterForm/>,
     code:registerFormCode,
+  },
+  button: {
+    title: "Button",
+    component:<ButtonGroup/>,
+    code:buttonCode,
   },
 }
 
