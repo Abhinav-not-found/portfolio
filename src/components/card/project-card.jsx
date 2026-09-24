@@ -1,12 +1,12 @@
-import Link from "next/link"
-import { Badge } from "../ui/badge"
-import Image from "next/image"
-import { Eye, Github } from "lucide-react"
+import Link from "next/link";
+import { Badge } from "../ui/badge";
+import Image from "next/image";
+import { Eye, Github } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 
 const techIcons = {
   "next.js": { img: "/svgs/nextjs.svg", label: "Next.js" },
@@ -14,32 +14,33 @@ const techIcons = {
   "node.js": { img: "/svgs/node.svg", label: "Node.js" },
   tailwind: { img: "/svgs/tailwind.svg", label: "Tailwind css" },
   mongodb: { img: "/svgs/mongodb.svg", label: "Mongodb" },
-  express: { img: "/svgs/express.svg", label: "Mongodb" },
-}
+  express: { img: "/svgs/express.svg", label: "Express" },
+  typescript: { img: "/svgs/typescript.svg", label: "TypeScript" },
+};
 
 const ProjectCard = ({ data }) => {
-  const latest = data?.latest || false
+  const latest = data?.latest || false;
   return (
     <div
-      className='size-76 h-fit md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
-    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md dark:shadow-neutral-700/80 group relative overflow-hidden'
+      className="size-76 h-fit md:size-82 hover:bg-linear-to-b rom-white dark:from-black to-neutral-100 dark:to-neutral-800/60 dark:bg-black hover:dark:bg-linear-to-b
+    rounded-md p-2  border-black dark:border-neutral-700 hover:shadow-md dark:shadow-neutral-700/80 group relative overflow-hidden"
     >
-      <Link target='_blank' href={`${data?.live}`}>
+      <Link target="_blank" href={`${data?.live}`}>
         <Eye
           style={{ transformOrigin: "15% 15%" }}
-          className='size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-125 duration-400 hover:text-yellow-400 text-neutral-400 dark:text-neutral-600 dark:hover:text-yellow-600'
+          className="size-10 bg-transparent p-2 rounded-full absolute -bottom-9 -right-4 transition-rotate group-hover:rotate-180 z-10 hover:scale-125 duration-400 hover:text-yellow-400 text-neutral-400 dark:text-neutral-600 dark:hover:text-yellow-600"
         />
       </Link>
       <Link
-        href={`${data?.live}`}
-        target='_blank'
+        href={`${data?.github}`}
+        target="_blank"
         style={{ transformOrigin: "15% 15%" }}
-        className='size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-neutral-400 dark:text-neutral-600 dark:hover:text-green-600'
+        className="size-10 bg-transparent p-2 rounded-full absolute -bottom-2 -right-8 transition-rotate group-hover:-rotate-180 transform-origin flex items-center justify-center hover:scale-120 duration-400 hover:text-green-500 text-neutral-400 dark:text-neutral-600 dark:hover:text-green-600"
       >
-        <Github className='rotate-180' />
+        <Github className="rotate-180" />
       </Link>
 
-      <div className='bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200'>
+      <div className="bg-neutral-200/50 dark:bg-neutral-700 w-full h-36 rounded-md relative border border-neutral-200">
         {/* <LinkElement href={`${data?.github}`} right='right-2'>
           <Github className='size-4' />
         </LinkElement>
@@ -52,7 +53,7 @@ const ProjectCard = ({ data }) => {
             alt={data?.title || "Blog banner"}
             fill
             priority
-            className='object-cover rounded-md dark:brightness-90'
+            className="object-cover rounded-md dark:brightness-90"
           />
         )}
 
@@ -67,20 +68,20 @@ const ProjectCard = ({ data }) => {
           </Badge>
         )}
       </div>
-      <div className='p-1 mt-2'>
+      <div className="p-1 mt-2">
         <Link
           href={`/projects/${data?.slug}`}
-          className='text-xl font-medium tracking-tight mt-2 hover:underline underline-offset-2 first-letter:uppercase'
+          className="text-xl font-medium tracking-tight mt-2 hover:underline underline-offset-2 first-letter:uppercase"
         >
           {data?.title || "Title"}
         </Link>
-        <p className='text- text-muted-foreground mt-2 leading-6'>
+        <p className="text- text-muted-foreground mt-2 leading-6">
           {data?.desc ||
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quis eum inventore voluptas harum perspiciatis ipsum"}
         </p>
-        <div className='mt-4 flex gap-2'>
+        <div className="mt-4 flex gap-2">
           {data?.techStack.map((item, index) => {
-            const icon = techIcons[item.toLowerCase()]
+            const icon = techIcons[item.toLowerCase()];
             return icon ? (
               <Tooltip key={index}>
                 <TooltipTrigger>
@@ -89,7 +90,7 @@ const ProjectCard = ({ data }) => {
                     alt={item}
                     width={25}
                     height={25}
-                    className='hover:scale-120 transition-all'
+                    className="hover:scale-120 transition-all"
                   />
                 </TooltipTrigger>
                 <TooltipContent>
@@ -98,24 +99,24 @@ const ProjectCard = ({ data }) => {
               </Tooltip>
             ) : (
               <p key={index}>{item}</p>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const LinkElement = ({ children, href, right }) => {
   return (
     <Link
       href={href}
-      target='_blank'
+      target="_blank"
       className={`w-8 h-12 border bg-white dark:bg-neutral-200 absolute ${right} bottom-0 group-hover:-bottom-7 transition-all rounded-b-xl cursor-pointer hover:-bottom-10 flex justify-center items-end pb-1 text-neutral-400 dark:text-neutral-500 hover:text-black dark:hover:text-black`}
     >
       {children}
     </Link>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;
