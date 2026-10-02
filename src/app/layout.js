@@ -3,11 +3,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", '900'],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const poppins = Poppins({
@@ -18,24 +19,25 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Abhinav - A MERN stack Developer",
-  description: "Full-stack MERN developer focused on building scalable, performant web applications with modern JavaScript technologies.",
+  description:
+    "Full-stack MERN developer focused on building scalable, performant web applications with modern JavaScript technologies.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${poppins.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
-            <Toaster richColors />
-            <TooltipProvider>
-                {children}
-            </TooltipProvider>
+          disableTransitionOnChange
+        >
+          <Toaster richColors />
+          <TooltipProvider>
+            {children}
+            <GoogleAnalytics />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
