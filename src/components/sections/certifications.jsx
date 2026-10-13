@@ -5,9 +5,25 @@ import Link from "next/link"
 import ReactSVG from "@/../public/svgs/react.svg"
 import Terminal from "@/../public/svgs/terminal.svg"
 import Robot from "@/../public/svgs/robot.svg"
+import Sheryians from "@/../public/svgs/sheryians.svg"
 import Image from "next/image"
 
 const certifications = [
+  {
+    icon: (
+      <Image
+        src={Sheryians}
+        alt='robot'
+        width={26}
+        height={26}
+        className='grayscale-100 invert-95 size-8 opacity-55'
+      />
+    ),
+    title: "Fullstack developer",
+    from: "@sheryians_coding_school",
+    date: "Jan - Sept 2026",
+    href: "https://drive.google.com/file/d/1e768su_-8gniTCjvFydNxHPt5hL1Ef-1/view?usp=sharing",
+  },
   {
     icon: (
       <Image
