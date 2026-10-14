@@ -8,6 +8,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { useTheme } from "next-themes"
 
 const TechStack = () => {
   return (
@@ -26,19 +27,32 @@ const TechStack = () => {
   )
 }
 
-const Item = ({ name, src }) => {
+const Item = ({ name, src, darkSrc }) => {
+  const { resolvedTheme } = useTheme();
+
+  const imageSrc =
+    name === "Socket.io" && resolvedTheme === "dark"
+      ? darkSrc
+      : src;
+
   return (
-    <div className='flex flex-col items-center gap-2 hover:scale-120 transition-all'>
+    <div className="flex flex-col items-center gap-2 hover:scale-120 transition-all">
       <Tooltip>
         <TooltipTrigger>
-          <Image src={src} alt={name} width={40} height={40} priority={true} />
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={40}
+            height={40}
+            priority
+          />
         </TooltipTrigger>
+
         <TooltipContent>
           <p>{name}</p>
         </TooltipContent>
       </Tooltip>
     </div>
-  )
-}
-
+  );
+};
 export default TechStack

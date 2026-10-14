@@ -3,7 +3,7 @@ import {
   GithubLogoIcon,
   LinkedinLogoIcon,
   XLogoIcon,
-} from "@phosphor-icons/react"
+} from "@phosphor-icons/react";
 
 export const socials = [
   {
@@ -26,15 +26,53 @@ export const socials = [
     href: "mailto:abhinavisgreat18@gmail.com",
     label: "Email",
   },
-]
-
+];
 
 export const techStack = [
-  { name: "MongoDB", src: "/images/tech/mongodb.png" },
-  { name: "Express", src: "/images/tech/express.png" },
-  { name: "React", src: "/images/tech/react.png" },
-  { name: "Node.js", src: "/images/tech/nodejs.png" },
-  { name: "Next.js", src: "/images/tech/nextjs2.png" },
-  { name: "Tailwind CSS", src: "/images/tech/tailwind.png" },
-  { name: "Python", src: "/images/tech/python.png" },
-]
+  {
+    name: "MongoDB",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/mongodb.png",
+  },
+  {
+    name: "Express.js",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/express.png",
+  },
+  {
+    name: "React.js",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/react.png",
+  },
+  {
+    name: "Node.js",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/nodejs.png",
+  },
+  {
+    name: "Tailwind CSS",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/tailwind.png",
+  },
+  {
+    name: "Next.js",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/nextjs2.png",
+  },
+  {
+    name: "Typescript",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/typescript.png",
+  },
+  {
+    name: "Docker",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/docker.png",
+  },
+  {
+    name: "Socket.io",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/socket.webp",
+    darkSrc:
+      "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/socketWhite.png",
+  },
+  {
+    name: "Git",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/git.webp",
+  },
+  {
+    name: "Redis",
+    src: "https://ik.imagekit.io/nya4chyes/Portfolio/TechStack/redis2.png",
+  },
+];
