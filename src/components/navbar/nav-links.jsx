@@ -8,9 +8,9 @@ const NavLinks = () => {
       <Links href='/projects' label='projects' />
       {/* <Links href="/blocks" label="blocks" /> */}
       <Links href='/blogs' label='blogs' />
-      <Links href='/npm' label='npm' />
-      <Links href='/tools' label='tools' />
-      <Links href='/quickUI' label='quickUI' />
+      {/* <Links href='/npm' label='npm' /> */}
+      {/* <Links href='/tools' label='tools' />
+      <Links href='/quickUI' label='quickUI' /> */}
     </nav>
   )
 }
