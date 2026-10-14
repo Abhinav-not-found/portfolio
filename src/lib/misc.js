@@ -3,6 +3,7 @@ import {
   GithubLogoIcon,
   LinkedinLogoIcon,
   XLogoIcon,
+  InstagramLogoIcon,
 } from "@phosphor-icons/react";
 
 export const socials = [
@@ -26,21 +27,26 @@ export const socials = [
     href: "mailto:abhinavisgreat18@gmail.com",
     label: "Email",
   },
+  {
+    icon: InstagramLogoIcon,
+    href: "https://www.instagram.com/abhinavkumar.mern",
+    label: "Instagram",
+  },
 ];
 
 export const profilePictures = [
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile2.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile3.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile4.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile5.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile6.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile7.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile8.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile9.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile10.jpg",
-    "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile11.jpg",
-  ]
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile2.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile3.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile4.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile5.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile6.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile7.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile8.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile9.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile10.jpg",
+  "https://ik.imagekit.io/nya4chyes/Portfolio/Profile%20Picture/profile11.jpg",
+];
 
 export const techStack = [
   {
