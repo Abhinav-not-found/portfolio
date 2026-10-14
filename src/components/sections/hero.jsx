@@ -55,7 +55,7 @@ const Hero = () => {
       <div className='flex flex-col gap-4 md:gap-0 md:flex-row justify-between items-center'>
         <SocialLinks />
         <div className='flex gap-2 md:gap-4 select-none'>
-          <Link href={"/resume"}>
+          {/* <Link href={"/resume"}>
             <Button
               size='sm'
               variant='outline'
@@ -65,7 +65,7 @@ const Hero = () => {
             >
               Resume
             </Button>
-          </Link>
+          </Link> */}
           <Link href={"/contact"}>
             <Button size='sm' className={"hover:shadow-brand hover:scale-101"}>
               Get in touch
