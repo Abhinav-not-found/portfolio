@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import QueryProvider from "@/components/providers/query-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
         >
           <Toaster richColors />
           <TooltipProvider>
-            {children}
+            <QueryProvider>{children}</QueryProvider>
             <GoogleAnalytics />
           </TooltipProvider>
         </ThemeProvider>

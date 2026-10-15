@@ -1,25 +1,34 @@
-import React from "react"
-import Header from "@/components/general/header"
-import PublicRoute from "@/components/routes/public-route"
-import ProjectCard from "@/components/card/project-card"
-import { getAllProjects } from "@/helper/server/project/get-all-projects"
+import React from "react";
+import Header from "@/components/general/header";
+import PublicRoute from "@/components/routes/public-route";
+import ProjectsList from "@/components/projects/project-list";
+import {
+  QueryClient,
+  dehydrate,
+  HydrationBoundary,
+} from "@tanstack/react-query";
+import { getAllProjects } from "@/helper/server/project/get-all-projects";
+import { projectsQueryKey } from "@/hooks/project.hook";
 
 const page = async () => {
-  const data = await getAllProjects()
+  const queryClient = new QueryClient();
 
+  const projects = await getAllProjects();
+
+  const serializableProjects = JSON.parse(JSON.stringify(projects));
+
+  queryClient.setQueryData(projectsQueryKey, serializableProjects);
   return (
     <PublicRoute className={"mt-18 min-h-screen"}>
       <Header>Projects</Header>
-      <div className='w-full h-full grid grid-cols-2 gap-x-4 gap-y-4 mt-4'>
-        {data.map((item, index) => {
-          return <ProjectCard key={index} data={item} />
-        })}
-      </div>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <ProjectsList />
+      </HydrationBoundary>
     </PublicRoute>
-  )
-}
+  );
+};
 
-export default page
+export default page;
 
 export const metadata = {
   title: "Projects - Abhinav Kumar",
@@ -46,4 +55,4 @@ export const metadata = {
     description:
       "A curated list of projects built with Next.js, React, Node.js, and MongoDB.",
   },
-}
+};
