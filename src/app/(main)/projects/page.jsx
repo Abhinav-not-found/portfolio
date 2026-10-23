@@ -13,7 +13,7 @@ import { projectsQueryKey } from "@/hooks/project.hook";
 const page = async () => {
   const queryClient = new QueryClient();
 
-  const projects = await getAllProjects();
+  const projects = await getAllProjects({ visible: true });
 
   const serializableProjects = JSON.parse(JSON.stringify(projects));
 
