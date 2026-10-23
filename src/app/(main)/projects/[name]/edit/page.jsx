@@ -1,26 +1,28 @@
-import ProjectForm from "@/components/form/create-project-form"
-import { getProjectBySlug } from "@/helper/server/project/get-project-by-slug"
-import { cookies } from "next/headers"
-import { notFound, redirect } from "next/navigation"
+import ProjectForm from "@/components/form/create-project-form";
+import { getProjectBySlug } from "@/helper/server/project/get-project-by-slug";
+import { cookies } from "next/headers";
+import { notFound, redirect } from "next/navigation";
 
 const page = async ({ params }) => {
-  const param = await params
-  const data = await getProjectBySlug(param.name)
+  const param = await params;
+  const data = await getProjectBySlug(param.name);
 
-  if (!data) notFound()
+  console.log(data);
 
-  const cookieStore = await cookies()
-  const token = cookieStore.get("token")
+  if (!data) notFound();
+
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token");
   if (!token) {
-    redirect("/")
+    redirect("/");
   }
 
   return (
-    <main className='mt-18'>
-      <h1 className='text-4xl font-bold mb-6'>Edit Project</h1>
+    <main className="mt-18">
+      <h1 className="text-4xl font-bold mb-6">Edit Project</h1>
 
       <ProjectForm
-        mode='edit'
+        mode="edit"
         initialData={{
           id: data._id.toString(),
           title: data.title,
@@ -30,10 +32,12 @@ const page = async ({ params }) => {
           github: data.github,
           live: data.live,
           featured: data.featured,
+          latest: data.latest,
+          techStack: data.techStack ?? [],
         }}
       />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;

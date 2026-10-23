@@ -1,18 +1,18 @@
-"use client"
-import { Field, FieldLabel, FieldSet } from "@/components/ui/field"
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
-import { Spinner } from "../ui/spinner"
-import { Textarea } from "../ui/textarea"
-import { Switch } from "../ui/switch"
-import { useState } from "react"
-import { toast } from "sonner"
-import { useRouter } from "next/navigation"
+"use client";
+import { Field, FieldLabel, FieldSet } from "@/components/ui/field";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { Spinner } from "../ui/spinner";
+import { Textarea } from "../ui/textarea";
+import { Switch } from "../ui/switch";
+import { useState } from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import {
   handleCreateProject,
   handleUpdateProject,
-} from "@/helper/client/project.helper"
-import MarkdownEditor from "@/app/test/_components/markdown-editor"
+} from "@/helper/client/project.helper";
+import MarkdownEditor from "@/app/test/_components/markdown-editor";
 
 const TECH_OPTIONS = [
   "React",
@@ -22,49 +22,49 @@ const TECH_OPTIONS = [
   "MongoDB",
   "Tailwind",
   "TypeScript",
-]
+];
 
-const CreateProjectForm = ({ mode = 'create', initialData }) => {
+const CreateProjectForm = ({ mode = "create", initialData }) => {
   const [form, setForm] = useState({
-    title: initialData?.title || "",
-    desc: initialData?.desc || "",
-    content: initialData?.content || "",
-    techstack: initialData?.techstack || [],
-    github: initialData?.github || "",
-    live: initialData?.live || "",
-    featured: initialData?.featured || false,
-    latest: initialData?.latest || false,
-  })
+    title: initialData?.title ?? "",
+    desc: initialData?.desc ?? "",
+    content: initialData?.content ?? "",
+    techStack: initialData?.techStack ?? [],
+    github: initialData?.github ?? "",
+    live: initialData?.live ?? "",
+    featured: initialData?.featured ?? false,
+    latest: initialData?.latest ?? false,
+  });
 
-  const [thumbnail, setThumbnail] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const router = useRouter()
+  const [thumbnail, setThumbnail] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (e) => {
-    const { id, value } = e.target
-    setForm((prev) => ({ ...prev, [id]: value }))
-  }
+    const { id, value } = e.target;
+    setForm((prev) => ({ ...prev, [id]: value }));
+  };
 
   const handleContentChange = (html) => {
-    setForm((prev) => ({ ...prev, content: html }))
-  }
+    setForm((prev) => ({ ...prev, content: html }));
+  };
 
   const toggleTech = (tech) => {
     setForm((prev) => ({
       ...prev,
-      techstack: prev.techstack.includes(tech)
-        ? prev.techstack.filter((t) => t !== tech)
-        : [...prev.techstack, tech],
-    }))
-  }
+      techStack: prev.techStack.includes(tech)
+        ? prev.techStack.filter((t) => t !== tech)
+        : [...prev.techStack, tech],
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (mode === "create") {
       await handleCreateProject(e, form, thumbnail, toast, router, {
         setLoading,
-      })
+      });
     }
 
     if (mode === "edit" && initialData?.id) {
@@ -75,42 +75,42 @@ const CreateProjectForm = ({ mode = 'create', initialData }) => {
         toast,
         router,
         { setLoading },
-      )
+      );
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <FieldSet>
         <Field>
-          <FieldLabel htmlFor='title'>Title</FieldLabel>
+          <FieldLabel htmlFor="title">Title</FieldLabel>
           <Input
             value={form.title}
             onChange={handleInputChange}
-            id='title'
+            id="title"
             type={"text"}
-            placeholder=''
+            placeholder=""
           />
         </Field>
         <Field>
-          <FieldLabel htmlFor='desc'>Description</FieldLabel>
-          <Textarea value={form.desc} onChange={handleInputChange} id='desc' />
+          <FieldLabel htmlFor="desc">Description</FieldLabel>
+          <Textarea value={form.desc} onChange={handleInputChange} id="desc" />
         </Field>
 
-        <div className='grid grid-cols-2 gap-4'>
+        <div className="grid grid-cols-2 gap-4">
           <Field>
             <FieldLabel>Tech Stack</FieldLabel>
-            <div className='grid grid-cols-2 gap-2 mt-2'>
+            <div className="grid grid-cols-2 gap-2 mt-2">
               {TECH_OPTIONS.map((tech) => (
                 <label
                   key={tech}
-                  className='flex items-center gap-2 cursor-pointer text-sm'
+                  className="flex items-center gap-2 cursor-pointer text-sm"
                 >
                   <input
-                    type='checkbox'
-                    checked={form.techstack.includes(tech)}
+                    type="checkbox"
+                    checked={form.techStack.includes(tech)}
                     onChange={() => toggleTech(tech)}
-                    className='accent-black'
+                    className="accent-black"
                   />
                   {tech}
                 </label>
@@ -120,18 +120,18 @@ const CreateProjectForm = ({ mode = 'create', initialData }) => {
 
           <div>
             <Field>
-              <FieldLabel htmlFor='thumbnail'>Thumbnail</FieldLabel>
+              <FieldLabel htmlFor="thumbnail">Thumbnail</FieldLabel>
               <Input
-                id='thumbnail'
+                id="thumbnail"
                 type={"file"}
-                accept='image/*'
+                accept="image/*"
                 onChange={(e) => setThumbnail(e.target.files?.[0] || null)}
               />
             </Field>
-            <div className='grid grid-cols-3 mt-6'>
+            <div className="grid grid-cols-3 mt-6">
               <Field>
-                <div className='flex items-center space-x-2'>
-                  <FieldLabel htmlFor='featured'>Featured</FieldLabel>
+                <div className="flex items-center space-x-2">
+                  <FieldLabel htmlFor="featured">Featured</FieldLabel>
                   <Switch
                     checked={form.featured}
                     onCheckedChange={(val) =>
@@ -141,8 +141,8 @@ const CreateProjectForm = ({ mode = 'create', initialData }) => {
                 </div>
               </Field>
               <Field>
-                <div className='flex items-center space-x-2'>
-                  <FieldLabel htmlFor='latest'>Latest</FieldLabel>
+                <div className="flex items-center space-x-2">
+                  <FieldLabel htmlFor="latest">Latest</FieldLabel>
                   <Switch
                     checked={form.latest}
                     onCheckedChange={(val) =>
@@ -155,37 +155,37 @@ const CreateProjectForm = ({ mode = 'create', initialData }) => {
           </div>
         </div>
 
-        <div className='grid grid-cols-2 gap-4'>
+        <div className="grid grid-cols-2 gap-4">
           <Field>
-            <FieldLabel htmlFor='live'>Live</FieldLabel>
+            <FieldLabel htmlFor="live">Live</FieldLabel>
             <Input
               value={form.live}
               onChange={handleInputChange}
-              id='live'
+              id="live"
               type={"text"}
-              placeholder=''
+              placeholder=""
             />
           </Field>
           <Field>
-            <FieldLabel htmlFor='github'>Github</FieldLabel>
+            <FieldLabel htmlFor="github">Github</FieldLabel>
             <Input
               value={form.github}
               onChange={handleInputChange}
-              id='github'
+              id="github"
               type={"text"}
-              placeholder=''
+              placeholder=""
             />
           </Field>
         </div>
 
         <Field>
-          <FieldLabel htmlFor='content'>Content</FieldLabel>
+          <FieldLabel htmlFor="content">Content</FieldLabel>
           <MarkdownEditor value={form.content} onChange={handleContentChange} />
         </Field>
 
         <Field>
           <Button
-            type='submit'
+            type="submit"
             className={"py-5 font-semibold "}
             disabled={loading}
           >
@@ -200,7 +200,7 @@ const CreateProjectForm = ({ mode = 'create', initialData }) => {
         </Field>
       </FieldSet>
     </form>
-  )
-}
+  );
+};
 
-export default CreateProjectForm
+export default CreateProjectForm;

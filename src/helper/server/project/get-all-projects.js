@@ -1,8 +1,8 @@
 import Project from "@/model/project.model";
 import { connectDB } from "@/lib/db";
 
-export const getAllProjects = async () => {
+export const getAllProjects = async (data) => {
   await connectDB();
 
-  return Project.find({ visible: true }).lean().sort("-createdAt");
+  return Project.find(data).lean().sort("-createdAt");
 };
